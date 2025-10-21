@@ -160,6 +160,10 @@
             
             if (filter === 'all') {
                 $('.property-card').fadeIn(300);
+            } else if (filter === 'arriendo') {
+                // Excluir locales cuando se selecciona "En Arriendo"
+                $('.property-card').hide();
+                $('.property-card[data-category*="arriendo"]:not([data-category*="local"])').fadeIn(300);
             } else {
                 $('.property-card').hide();
                 $('.property-card[data-category*="' + filter + '"]').fadeIn(300);
@@ -241,39 +245,7 @@
             }
         });
 
-        // Contact Form
-        $('#contactForm').on('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                nombre: $('#nombre').val(),
-                telefono: $('#telefono').val(),
-                email: $('#email').val(),
-                asunto: $('#asunto').val(),
-                mensaje: $('#mensaje').val()
-            };
-            
-            console.log('Formulario de contacto:', formData);
-            
-            // Validación básica
-            if (!formData.nombre || !formData.telefono || !formData.email || !formData.asunto || !formData.mensaje) {
-                alert('Por favor completa todos los campos');
-                return;
-            }
-            
-            // Validación de email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                alert('Por favor ingresa un email válido');
-                return;
-            }
-            
-            // Aquí puedes implementar el envío del formulario a tu servidor
-            alert('¡Gracias por contactarnos! Te responderemos pronto.');
-            
-            // Limpiar formulario
-            this.reset();
-        });
+        // Contact Form eliminado: no se aplica lógica de envío en esta versión
 
         // Scroll to Top Button
         const scrollTop = $('#scrollTop');
@@ -427,6 +399,88 @@
             const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
             console.log('Tiempo de carga de página: ' + (pageLoadTime / 1000).toFixed(2) + ' segundos');
         }
+
+        // Google Reviews Integration (via Maps JavaScript Places API)
+        (function setupGoogleReviews() {
+            const container = document.getElementById('google-reviews');
+            if (!container) return;
+
+            const apiKey = container.dataset.apiKey;
+            const placeId = container.dataset.placeId;
+            if (!apiKey || !placeId) {
+                console.warn('Google Reviews: configure data-api-key and data-place-id on #google-reviews');
+                return;
+            }
+
+            function loadScript() {
+                return new Promise((resolve, reject) => {
+                    if (window.google && window.google.maps && window.google.maps.places) {
+                        resolve();
+                        return;
+                    }
+                    const s = document.createElement('script');
+                    s.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+                    s.async = true;
+                    s.onload = resolve;
+                    s.onerror = reject;
+                    document.head.appendChild(s);
+                });
+            }
+
+            function renderStars(rating) {
+                const r = Math.round(rating || 0);
+                let html = '<div class="testimonial-rating">';
+                for (let i = 0; i < 5; i++) {
+                    html += `<i class="fas fa-star${i < r ? '' : ' empty'}"></i>`;
+                }
+                html += '</div>';
+                return html;
+            }
+
+            function renderReviewCard(review) {
+                const photo = review.profile_photo_url || 'assets/ico/fondo.jpg';
+                const text = review.text || '';
+                const author = review.author_name || 'Cliente';
+                return `
+                    <div class="testimonial-card">
+                        ${renderStars(review.rating)}
+                        <p class="testimonial-text">${text.replace(/\n/g, ' ')}</p>
+                        <div class="testimonial-author">
+                            <img src="${photo}" alt="${author}">
+                            <div class="author-info">
+                                <h4>${author}</h4>
+                                <p>Cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderReviews(details) {
+                const reviews = (details.reviews || []).slice(0, 6);
+                if (!reviews.length) {
+                    console.warn('Google Reviews: no reviews returned for Place');
+                    return;
+                }
+                container.innerHTML = reviews.map(renderReviewCard).join('');
+            }
+
+            loadScript().then(() => {
+                const service = new google.maps.places.PlacesService(document.createElement('div'));
+                service.getDetails({
+                    placeId: placeId,
+                    fields: ['rating', 'user_ratings_total', 'reviews', 'name']
+                }, (result, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK && result) {
+                        renderReviews(result);
+                    } else {
+                        console.error('Google Reviews getDetails status:', status);
+                    }
+                });
+            }).catch((err) => {
+                console.error('Google Maps script load failed', err);
+            });
+        })();
 
     }); // End Document Ready
 

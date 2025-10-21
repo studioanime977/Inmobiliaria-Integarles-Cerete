@@ -199,11 +199,11 @@
     }
 
     .scroll-top {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
         bottom: 15px;
-        left: 15px;
+        right: 15px;
     }
 }
 
@@ -329,4 +329,23 @@
     bottom: 35px;
     width: 96%;
   }
+}
+
+@media (min-width: 992px) {
+  /* Asegurar 4 columnas horizontales en desktop */
+  .about-us .why-us-stats,
+  .why-us-stats {
+    grid-template-columns: repeat(4, minmax(180px, 1fr)) !important;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Testimonios en 2 columnas en tablet */
+  .testimonials-slider { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 576px) {
+  /* Testimonios en 1 columna en móvil */
+  .testimonials-slider { grid-template-columns: 1fr; }
 }

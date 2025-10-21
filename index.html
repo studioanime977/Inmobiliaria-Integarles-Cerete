@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -43,8 +43,10 @@
             
             <div class="header-main nav-wrapper">
                 <div class="logo">
-                    <img src="assets/ico/logo.jpg" alt="Integrales inmobiliaria & Abogados">
-                    <h1>Inmobiliaria Integrales Cereté</h1>
+                    <picture>
+                        <source srcset="assets/ico/logo.svg" type="image/svg+xml">
+                        <img src="assets/ico/logo.jpg" alt="Integrales inmobiliaria & Abogados">
+                    </picture>
                 </div>
                 
                 <nav class="main-nav" id="nav-menu">
@@ -110,12 +112,12 @@
             </div>
             
             <div class="hero-slide">
-                <img src="assets/img/VIVIENDA URBANA 1/1.jpg" alt="Proyectos inmobiliarios">
+                <img src="assets/ico/fondo.jpg" alt="Propiedad destacada">
                 <div class="hero-content">
                     <div class="container">
                         <h2 data-aos="fade-up">Oportunidades de inversión</h2>
                         <p data-aos="fade-up" data-aos-delay="100">Descubre nuestras oportunidades de inversión</p>
-                        <a href="#propiedades" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Ver Propiedades</a>
+                        <a href="#propiedades" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Ver Propiedades que tenemos para ti</a>
                     </div>
                 </div>
             </div>
@@ -181,16 +183,18 @@
                 <button class="filter-btn active" data-filter="all">Todas</button>
                 <button class="filter-btn" data-filter="venta">En Venta</button>
                 <button class="filter-btn" data-filter="arriendo">En Arriendo</button>
+                <button class="filter-btn" data-filter="local">Locales</button>
             </div>
             
             <div class="properties-grid">
                 <!-- Barrio Santa Teresa 1 -->
-                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
                     <div class="property-image">
-                        <img src="assets/img/barrio%20santa%20Teresa%201/portada.jpg" alt="Local Comercial Barrio Santa Teresa">
+                        <img src="assets/img/LOCALES/barrio%20santa%20Teresa/portada.jpg" alt="Local Comercial Barrio Santa Teresa">
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/LOCALES/barrio%20santa%20Teresa/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Local Comercial - Barrio Santa Teresa</h3>
@@ -199,8 +203,6 @@
                             <span><i class="fas fa-building"></i> Comercial</span>
                             <span><i class="fas fa-ruler-combined"></i> 3.5m x 6m</span>
                         </div>
-                        <div class="property-price">$500.000/mes</div>
-                        <a href="assets/img/barrio%20santa%20Teresa%201/index.html" class="btn btn-outline">Ver Detalles</a>
                     </div>
                 </div>
 
@@ -211,6 +213,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/barrio%20venus%20ceret%C3%A9%201/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Vivienda - Barrio Venus</h3>
@@ -221,7 +224,7 @@
                             <span><i class="fas fa-car"></i> Garaje</span>
                         </div>
                         <div class="property-price">$1.500.000/mes</div>
-                        <a href="assets/img/barrio%20venus%20ceret%C3%A9%201/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/barrio%20venus%20ceret%C3%A9%201/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -232,6 +235,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/barrio%20venus%20consta%20de%202/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Vivienda - Barrio Venus (2 hab.)</h3>
@@ -241,17 +245,18 @@
                             <span><i class="fas fa-bath"></i> 1 baño</span>
                         </div>
                         <div class="property-price">$600.000/mes</div>
-                        <a href="assets/img/barrio%20venus%20consta%20de%202/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/barrio%20venus%20consta%20de%202/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
                 <!-- Callejón de los fritos - Calle del Comercio -->
-                <div class="property-card" data-category="arriendo" data-aos="fade-up" data-aos-delay="300">
+                <div class="property-card" data-category="arriendo local" data-aos="fade-up" data-aos-delay="300">
                     <div class="property-image">
                         <img src="assets/img/callej%C3%B3n%20de%20los%20fritos%20CALLE%20DEL%20COMERCIO/portada.jpg" alt="Local Comercial Calle del Comercio">
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/callej%C3%B3n%20de%20los%20fritos%20CALLE%20DEL%20COMERCIO/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Local Comercial - Calle del Comercio</h3>
@@ -261,17 +266,18 @@
                             <span><i class="fas fa-brush"></i> Remodelado</span>
                         </div>
                         <div class="property-price">$2.500.000/mes</div>
-                        <a href="assets/img/callej%C3%B3n%20de%20los%20fritos%20CALLE%20DEL%20COMERCIO/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/callej%C3%B3n%20de%20los%20fritos%20CALLE%20DEL%20COMERCIO/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
                 <!-- Corazón de la Avenida Santander 1 -->
-                <div class="property-card" data-category="arriendo" data-aos="fade-up" data-aos-delay="400">
+                <div class="property-card" data-category="arriendo local" data-aos="fade-up" data-aos-delay="400">
                     <div class="property-image">
                         <img src="assets/img/corazon%20de%20la%20avenida%20santander%201/portada.jpg" alt="Lote Av. Santander">
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/corazon%20de%20la%20avenida%20santander%201/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Lote/Local - Av. Santander</h3>
@@ -280,7 +286,7 @@
                             <span><i class="fas fa-ruler-combined"></i> 8m x 19m</span>
                         </div>
                         <div class="property-price">$800.000/mes</div>
-                        <a href="assets/img/corazon%20de%20la%20avenida%20santander%201/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/corazon%20de%20la%20avenida%20santander%201/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -291,6 +297,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/edificio%20que%20est%C3%A1%20en%20los%20sem%C3%A1foros%20del%20granero%20jaramillo%20en%20cerete/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Apartamentos - Centro</h3>
@@ -301,7 +308,7 @@
                             <span><i class="fas fa-kitchen-set"></i> Cocina integral</span>
                         </div>
                         <div class="property-price">$1.000.000/mes</div>
-                        <a href="assets/img/edificio%20que%20est%C3%A1%20en%20los%20sem%C3%A1foros%20del%20granero%20jaramillo%20en%20cerete/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/edificio%20que%20est%C3%A1%20en%20los%20sem%C3%A1foros%20del%20granero%20jaramillo%20en%20cerete/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -312,6 +319,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/garzones%20monteria%20consta%20de%202/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Vivienda - Garzones (Montería)</h3>
@@ -321,7 +329,7 @@
                             <span><i class="fas fa-bath"></i> 2 baños</span>
                         </div>
                         <div class="property-price">$600.000/mes</div>
-                        <a href="assets/img/garzones%20monteria%20consta%20de%202/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/garzones%20monteria%20consta%20de%202/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -332,6 +340,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/paquete%20central%20de%20cerete/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Local Comercial - Paquete Central</h3>
@@ -341,7 +350,7 @@
                             <span><i class="fas fa-ruler-combined"></i> 8m x 22m</span>
                         </div>
                         <div class="property-price">$5.500.000/mes</div>
-                        <a href="assets/img/paquete%20central%20de%20cerete/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/paquete%20central%20de%20cerete/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -352,6 +361,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/PELAYO%201/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Vivienda - Pelayo</h3>
@@ -362,7 +372,7 @@
                             <span><i class="fas fa-car"></i> Garaje eléctrico</span>
                         </div>
                         <div class="property-price">$1.000.000/mes</div>
-                        <a href="assets/img/PELAYO%201/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/PELAYO%201/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
 
@@ -373,6 +383,7 @@
                         <div class="property-overlay">
                             <span class="property-status arriendo">En Arriendo</span>
                         </div>
+                        <a href="assets/img/retiro%20de%20los%20indios/index.html" class="view-more-overlay">Ver Más Información</a>
                     </div>
                     <div class="property-info">
                         <h3>Vivienda - Retiro de los Indios</h3>
@@ -382,7 +393,7 @@
                             <span><i class="fas fa-bath"></i> 2 baños</span>
                         </div>
                         <div class="property-price">$800.000/mes</div>
-                        <a href="assets/img/retiro%20de%20los%20indios/index.html" class="btn btn-outline">Ver Detalles</a>
+                        <a href="assets/img/retiro%20de%20los%20indios/index.html" class="btn btn-outline">Ver Más Información</a>
                     </div>
                 </div>
             </div>
@@ -406,7 +417,7 @@
                 </div>
                 
                 <div class="about-image" data-aos="fade-left">
-                    <img src="assets/img/about.jpg" alt="Equipo Integarles">
+                    <img src="assets/ico/fondo.jpg" alt="Equipo Integarles">
                 </div>
             </div>
             
@@ -442,7 +453,7 @@
                 <p class="section-subtitle">La satisfacción de nuestros clientes es nuestra mejor carta de presentación</p>
             </div>
             
-            <div class="testimonials-slider" data-aos="fade-up">
+            <div class="testimonials-slider" data-aos="fade-up" id="google-reviews" data-api-key="" data-place-id="">
                 <div class="testimonial-card">
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
@@ -451,12 +462,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Excelente servicio. Me ayudaron a encontrar la casa de mis sueños en tiempo récord. El equipo es muy profesional y atento."</p>
+                    <p class="testimonial-text">"Buscaba una casa en Cereté con 3 habitaciones y patio amplio. Integarles me mostró varias opciones perfectas y encontré exactamente lo que necesitaba para mi familia. Su conocimiento del mercado local es impresionante."</p>
                     <div class="testimonial-author">
-                        <img src="assets/img/cliente1.jpg" alt="María González">
+                        <img src="assets/ico/fondo.jpg" alt="María González">
                         <div class="author-info">
                             <h4>María González</h4>
-                            <p>Compradora</p>
+                            <p>Compradora de Vivienda</p>
                         </div>
                     </div>
                 </div>
@@ -469,12 +480,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Vendí mi propiedad en menos de un mes. La asesoría fue impecable desde el principio hasta el final. 100% recomendados."</p>
+                    <p class="testimonial-text">"Necesitaba un local comercial en zona céntrica para mi negocio de ropa. Me ayudaron a encontrar el lugar perfecto con excelente ubicación y precio justo. Ahora mi tienda está prosperando."</p>
                     <div class="testimonial-author">
-                        <img src="assets/img/cliente2.jpg" alt="Carlos Martínez">
+                        <img src="assets/ico/fondo.jpg" alt="Carlos Martínez">
                         <div class="author-info">
                             <h4>Carlos Martínez</h4>
-                            <p>Vendedor</p>
+                            <p>Propietario de Local Comercial</p>
                         </div>
                     </div>
                 </div>
@@ -487,31 +498,15 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Gracias a Integarles pude acceder a mi vivienda propia con subsidio. El proceso fue claro y me acompañaron en cada paso."</p>
+                    <p class="testimonial-text">"Como familia joven, conseguir nuestra primera vivienda parecía imposible. Integarles nos acompañó en todo el proceso y encontramos un apartamento hermoso que se ajustaba a nuestro presupuesto."</p>
                     <div class="testimonial-author">
-                        <img src="assets/img/cliente3.jpg" alt="Ana Rodríguez">
+                        <img src="assets/ico/fondo.jpg" alt="Ana Rodríguez">
                         <div class="author-info">
                             <h4>Ana Rodríguez</h4>
-                            <p>Proyecto VIS</p>
+                            <p>Compradora de Vivienda</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content" data-aos="fade-up">
-                <div class="newsletter-text">
-                    <h2>Mantente Informado</h2>
-                    <p>Suscríbete y recibe ofertas exclusivas, nuevos proyectos y las mejores oportunidades inmobiliarias</p>
-                </div>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
-                    <button type="submit" class="btn btn-newsletter">Suscribirse</button>
-                </form>
             </div>
         </div>
     </section>
@@ -535,7 +530,7 @@
                         </div>
                         <div class="info-content">
                             <h4>Dirección</h4>
-                            <p>Cereté, Córdoba, Colombia</p>
+                            <p><a href="https://maps.app.goo.gl/DUgEHr5G96X4p8Kd9" target="_blank" rel="noopener">Cereté, Córdoba, Colombia</a></p>
                         </div>
                     </div>
                     
@@ -545,19 +540,11 @@
                         </div>
                         <div class="info-content">
                             <h4>Teléfono</h4>
-                            <p>+57 321 739 5050</p>
+                            <p><a href="tel:+573015717622">+57 301 571 7622</a> / <a href="tel:+573007256161">+57 300 725 6161</a></p>
                         </div>
                     </div>
                     
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <p>info@integarlescerete.com</p>
-                        </div>
-                    </div>
+                    <!-- Email eliminado por solicitud: se usa WhatsApp como canal principal -->
                     
                     <div class="info-item">
                         <div class="info-icon">
@@ -577,77 +564,856 @@
                         <a href="https://wa.me/573217395050" target="_blank" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
                     </div>
                 </div>
                 
-                <div class="contact-form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nombre">Nombre Completo</label>
-                                <input type="text" id="nombre" name="nombre" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="asunto">Asunto</label>
-                            <select id="asunto" name="asunto" required>
-                                <option value="">Selecciona un asunto</option>
-                                <option value="compra">Compra de Propiedad</option>
-                                <option value="venta">Venta de Propiedad</option>
-                                <option value="arriendo">Arriendo</option>
-                                <option value="proyecto">Información de Proyectos</option>
-                                <option value="asesoria">Asesoría General</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
-                    </form>
-                </div>
+                <!-- Formulario de contacto eliminado por solicitud -->
             </div>
         </div>
     </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126063.82344567843!2d-75.79907537148435!3d8.883333333333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e5a2f8c4e4e4e4e%3A0x4e4e4e4e4e4e4e4e!2sCeret%C3%A9%2C%20C%C3%B3rdoba%2C%20Colombia!5e0!3m2!1ses!2sco!4v1234567890123!5m2!1ses!2sco" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+        <!-- Auto-generated Catalog START -->
+    <section class="catalogo" id="propiedades-completo">
+      <div class="container">
+        <h2 class="section-title">CatÃ¡logo Completo de Propiedades</h2>        <h3 style="margin-top:30px">Viviendas</h3>
+        <div class="catalog-grid">                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/altos del noval 2/PORTADA.jpg" alt="Casa altos del noval 2">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/altos-del-noval-2.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Casa - altos del noval 2</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$550.000/mes</div>
+                        <a href="pages/viviendas/altos-del-noval-2.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio 24 de mayo cerca del colegio/PORTADA.jpg" alt="Vivienda barrio 24 de mayo cerca del colegio">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-24-de-mayo-cerca-del-colegio.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio 24 de mayo cerca del colegio</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/viviendas/barrio-24-de-mayo-cerca-del-colegio.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio 24 de mayo urbanización San rafael/PORTADA.jpg" alt="Vivienda barrio 24 de mayo urbanización San rafael">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-24-de-mayo-urbanización-san-rafael.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio 24 de mayo urbanización San rafael</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio 24 de mayo urbanización San rafael cereté- córdoba</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio 24 de mayo urbanización San rafael cereté- córdoba</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/barrio-24-de-mayo-urbanización-san-rafael.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio corinto/PORTADA.jpg" alt="Vivienda barrio corinto">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-corinto.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio corinto</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$650.000/mes</div>
+                        <a href="pages/viviendas/barrio-corinto.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio corinto, consta de 2 habitaciones/PORTADA.jpg" alt="Vivienda barrio corinto, consta de 2 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-corinto-consta-de-2-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio corinto, consta de 2 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                        </div>
+                        <div class="property-price">$550.000/mes</div>
+                        <a href="pages/viviendas/barrio-corinto-consta-de-2-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el edén cerete/PORTADA.jpg" alt="Vivienda barrio el edén cerete">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-edén-cerete.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el edén cerete</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el edén cerete cordoba</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el edén cerete cordoba</span>
+                        </div>
+                        
+                        <a href="pages/viviendas/barrio-el-edén-cerete.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el edén consta de 3 habitacione/PORTADA.jpg" alt="Vivienda barrio el edén consta de 3 habitacione">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-edén-consta-de-3-habitacione.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el edén consta de 3 habitacione</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$750.000/mes</div>
+                        <a href="pages/viviendas/barrio-el-edén-consta-de-3-habitacione.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el edén cuenta con 2 habitaciones/PORTADA.jpg" alt="Vivienda barrio el edén cuenta con 2 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-edén-cuenta-con-2-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el edén cuenta con 2 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el edén</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el edén</span>
+                        </div>
+                        
+                        <a href="pages/viviendas/barrio-el-edén-cuenta-con-2-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el noval frente a la calle de ferromateriales garces/PORTADA.jpg" alt="Vivienda barrio el noval frente a la calle de ferromateriales garces">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el noval frente a la calle de ferromateriales garces</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el noval frente a la calle de ferromateriales garces,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el noval frente a la calle de ferromateriales garces,</span>
+                        </div>
+                        
+                        <a href="pages/viviendas/barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el pardo consta de 3/PORTADA.jpg" alt="Vivienda barrio el pardo consta de 3">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-pardo-consta-de-3.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el pardo consta de 3</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el pardo</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el pardo</span>
+                        </div>
+                        <div class="property-price">$900.000/mes</div>
+                        <a href="pages/viviendas/barrio-el-pardo-consta-de-3.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el prado/PORTADA.jpg" alt="Vivienda barrio el prado">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-prado.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el prado</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el prado</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el prado</span>
+                        </div>
+                        <div class="property-price">$750.000/mes</div>
+                        <a href="pages/viviendas/barrio-el-prado.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el prado al frente de la salida de colegio de los niños/PORTADA.jpg" alt="Vivienda barrio el prado al frente de la salida de colegio de los niños">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-niños.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el prado al frente de la salida de colegio de los niños</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el prado al frente de la salida de colegio de los niños;</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el prado al frente de la salida de colegio de los niños;</span>
+                        </div>
+                        <div class="property-price">$600.0000/mes</div>
+                        <a href="pages/viviendas/barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-niños.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el prado cuenta con 3 habitaciones/PORTADA.jpg" alt="Vivienda barrio el prado cuenta con 3 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-prado-cuenta-con-3-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el prado cuenta con 3 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el prado</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el prado</span>
+                        </div>
+                        
+                        <a href="pages/viviendas/barrio-el-prado-cuenta-con-3-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio el prado de cereté/PORTADA.jpg" alt="Vivienda barrio el prado de cereté">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-el-prado-de-cereté.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio el prado de cereté</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio el prado de cereté</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio el prado de cereté</span>
+                        </div>
+                        <div class="property-price">$800.000/mes</div>
+                        <a href="pages/viviendas/barrio-el-prado-de-cereté.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio la gloria consta de 3 habitacione/PORTADA.jpg" alt="Vivienda barrio la gloria consta de 3 habitacione">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-la-gloria-consta-de-3-habitacione.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio la gloria consta de 3 habitacione</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio la gloria</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio la gloria</span>
+                        </div>
+                        <div class="property-price">$750.000/mes</div>
+                        <a href="pages/viviendas/barrio-la-gloria-consta-de-3-habitacione.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio San diego/PORTADA.jpg" alt="Vivienda barrio San diego">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-san-diego.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio San diego</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio San diego,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio San diego,</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/barrio-san-diego.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio San diego consta de 3 habitaciones/PORTADA.jpg" alt="Vivienda barrio San diego consta de 3 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-san-diego-consta-de-3-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio San diego consta de 3 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/barrio-san-diego-consta-de-3-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio San Nicolas en toda la calle del cementerio/PORTADA.jpg" alt="Vivienda barrio San Nicolas en toda la calle del cementerio">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-san-nicolas-en-toda-la-calle-del-cementerio.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio San Nicolas en toda la calle del cementerio</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/viviendas/barrio-san-nicolas-en-toda-la-calle-del-cementerio.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa clara/PORTADA.jpg" alt="Vivienda barrio santa clara">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-clara.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio santa clara</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa clara</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa clara</span>
+                        </div>
+                        <div class="property-price">$1.000.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-clara.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa clara consta de 3 habitaciones/PORTADA.jpg" alt="Vivienda barrio santa clara consta de 3 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-clara-consta-de-3-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio santa clara consta de 3 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa clara</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa clara</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-clara-consta-de-3-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa clara frente a frutitodo/PORTADA.jpg" alt="Vivienda barrio santa clara frente a frutitodo">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-clara-frente-a-frutitodo.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio santa clara frente a frutitodo</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa clara frente a frutitodo</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa clara frente a frutitodo</span>
+                        </div>
+                        <div class="property-price">$650.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-clara-frente-a-frutitodo.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa clara, cerca del parque/PORTADA.jpg" alt="Local Comercial barrio santa clara, cerca del parque">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-clara-cerca-del-parque.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - barrio santa clara, cerca del parque</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-clara-cerca-del-parque.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa paula, consta de 2 habitaciones/PORTADA.jpg" alt="Vivienda barrio santa paula, consta de 2 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-paula-consta-de-2-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio santa paula, consta de 2 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa paula,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa paula,</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-paula-consta-de-2-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio santa teresa consta 3 habitaciones/PORTADA.jpg" alt="Vivienda barrio santa teresa consta 3 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-santa-teresa-consta-3-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio santa teresa consta 3 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa teresa</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa teresa</span>
+                        </div>
+                        <div class="property-price">$650.000/mes</div>
+                        <a href="pages/viviendas/barrio-santa-teresa-consta-3-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio venus/PORTADA.jpg" alt="Vivienda barrio venus">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-venus.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio venus</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio venus</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio venus</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/viviendas/barrio-venus.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/barrio venus cereté/PORTADA.jpg" alt="Vivienda barrio venus cereté">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/barrio-venus-cereté.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - barrio venus cereté</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio venus cereté- córdoba</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio venus cereté- córdoba</span>
+                        </div>
+                        <div class="property-price">$1.500.000/mes</div>
+                        <a href="pages/viviendas/barrio-venus-cereté.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/calle 23 de la gloria cuenta con 4 habitaciones/PORTADA.jpg" alt="Vivienda calle 23 de la gloria cuenta con 4 habitaciones">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/calle-23-de-la-gloria-cuenta-con-4-habitaciones.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - calle 23 de la gloria cuenta con 4 habitaciones</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle 23 de la gloria</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> la calle 23 de la gloria</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/calle-23-de-la-gloria-cuenta-con-4-habitaciones.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/calle cartagenita cerca de billares el hipico/PORTADA.jpg" alt="Vivienda calle cartagenita cerca de billares el hipico">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/calle-cartagenita-cerca-de-billares-el-hipico.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - calle cartagenita cerca de billares el hipico</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle cartagenita cerca de billares el hipico detrás de la panadería de emiliano TERCER PISO Y PRIMER PISO  APTO 301 Y 102</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> la calle cartagenita cerca de billares el hipico detrás de la panadería de emiliano TERCER PISO Y PRIMER PISO  APTO 301 Y 102</span>
+                        </div>
+                        <div class="property-price">$550.000/mes</div>
+                        <a href="pages/viviendas/calle-cartagenita-cerca-de-billares-el-hipico.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/calle cartagenita cerca del marceliano polo/PORTADA.jpg" alt="Vivienda calle cartagenita cerca del marceliano polo">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/calle-cartagenita-cerca-del-marceliano-polo.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - calle cartagenita cerca del marceliano polo</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle cartagenita cerca del marceliano polo</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> la calle cartagenita cerca del marceliano polo</span>
+                        </div>
+                        <div class="property-price">$850.000/mes</div>
+                        <a href="pages/viviendas/calle-cartagenita-cerca-del-marceliano-polo.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/calle cartagenita en todo los semáforos/PORTADA.jpg" alt="Local Comercial calle cartagenita en todo los semáforos">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/calle-cartagenita-en-todo-los-semáforos.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - calle cartagenita en todo los semáforos</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle cartagenita en todo los semáforos</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> la calle cartagenita en todo los semáforos</span>
+                        </div>
+                        <div class="property-price">$900.000/mes</div>
+                        <a href="pages/viviendas/calle-cartagenita-en-todo-los-semáforos.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/calle principal  del cañito/PORTADA.jpg" alt="Vivienda calle principal  del cañito">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/calle-principal-del-cañito.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - calle principal  del cañito</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle principal  del cañito a escasos 50 metros de la pavimentada</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> la calle principal  del cañito a escasos 50 metros de la pavimentada</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/viviendas/calle-principal-del-cañito.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/edificio que está en los semáforos del granero jaramillo/PORTADA.jpg" alt="Vivienda edificio que está en los semáforos del granero jaramillo">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/edificio-que-está-en-los-semáforos-del-granero-jaramillo.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - edificio que está en los semáforos del granero jaramillo</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el edificio que está en los semáforos del granero jaramillo en cerete, cerca de los juzgado y zona céntrica de cerete,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> el edificio que está en los semáforos del granero jaramillo en cerete, cerca de los juzgado y zona céntrica de cerete,</span>
+                        </div>
+                        <div class="property-price">$1.000.0000/mes</div>
+                        <a href="pages/viviendas/edificio-que-está-en-los-semáforos-del-granero-jaramillo.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/garzones monteria/PORTADA.jpg" alt="Vivienda garzones monteria">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/garzones-monteria.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - garzones monteria</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> garzones monteria</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> garzones monteria</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/viviendas/garzones-monteria.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/orilla del rio centro/PORTADA.jpg" alt="Local Comercial orilla del rio centro">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/orilla-del-rio-centro.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - orilla del rio centro</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la orilla del rio centro,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> la orilla del rio centro,</span>
+                        </div>
+                        <div class="property-price">$300.000/mes</div>
+                        <a href="pages/viviendas/orilla-del-rio-centro.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/PELAYO  cerca de la bomba entrada principal/PORTADA.jpg" alt="Vivienda PELAYO  cerca de la bomba entrada principal">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/pelayo-cerca-de-la-bomba-entrada-principal.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Vivienda - PELAYO  cerca de la bomba entrada principal</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> PELAYO  cerca de la bomba entrada principal</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> PELAYO  cerca de la bomba entrada principal</span>
+                        </div>
+                        <div class="property-price">$1.000.0000/mes</div>
+                        <a href="pages/viviendas/pelayo-cerca-de-la-bomba-entrada-principal.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/VIVIENDAS/retiro de los indios/PORTADA.jpg" alt="Casa retiro de los indios">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/viviendas/retiro-de-los-indios.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Casa - retiro de los indios</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> retiro de los indios</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 habitaciones</span>
+                            <span><i class="fas fa-map-marker-alt"></i> retiro de los indios</span>
+                        </div>
+                        <div class="property-price">$800.000/mes</div>
+                        <a href="pages/viviendas/retiro-de-los-indios.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>        </div>        <h3 style="margin-top:30px">Locales Comerciales</h3>
+        <div class="catalog-grid">                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/barrio santa Teresa/PORTADA.jpg" alt="Local Comercial barrio santa Teresa">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/barrio-santa-teresa.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - barrio santa Teresa</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el barrio santa Teresa  frente a la sede del mismo nombre</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el barrio santa Teresa  frente a la sede del mismo nombre</span>
+                        </div>
+                        <div class="property-price">$500.000/mes</div>
+                        <a href="pages/locales/barrio-santa-teresa.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/barrio santa teresa en la calle principal/PORTADA.jpg" alt="Local Comercial barrio santa teresa en la calle principal">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/barrio-santa-teresa-en-la-calle-principal.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - barrio santa teresa en la calle principal</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/locales/barrio-santa-teresa-en-la-calle-principal.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/calle del banco agrario cerete/PORTADA.jpg" alt="Local Comercial calle del banco agrario cerete">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/calle-del-banco-agrario-cerete.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - calle del banco agrario cerete</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle del banco agrario cerete,</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> la calle del banco agrario cerete,</span>
+                        </div>
+                        <div class="property-price">$3.500.000/mes</div>
+                        <a href="pages/locales/calle-del-banco-agrario-cerete.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/calle del cementerio consta de 3/PORTADA.jpg" alt="Local Comercial calle del cementerio consta de 3">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/calle-del-cementerio-consta-de-3.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - calle del cementerio consta de 3</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle del cementerio</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> la calle del cementerio</span>
+                        </div>
+                        <div class="property-price">$600.000/mes</div>
+                        <a href="pages/locales/calle-del-cementerio-consta-de-3.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/calle del cementerio frente a frutitodo/PORTADA.jpg" alt="Local Comercial calle del cementerio frente a frutitodo">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/calle-del-cementerio-frente-a-frutitodo.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - calle del cementerio frente a frutitodo</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> la calle del cementerio frente a frutitodo</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> la calle del cementerio frente a frutitodo</span>
+                        </div>
+                        <div class="property-price">$700.000/mes</div>
+                        <a href="pages/locales/calle-del-cementerio-frente-a-frutitodo.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/callejón de los fritos CALLE DEL COMERCIO/PORTADA.jpg" alt="Local Comercial callejón de los fritos CALLE DEL COMERCIO">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/callejón-de-los-fritos-calle-del-comercio.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - callejón de los fritos CALLE DEL COMERCIO</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el callejón de los fritos CALLE DEL COMERCIO CERETE,  recién remodelado buenos acabados</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el callejón de los fritos CALLE DEL COMERCIO CERETE,  recién remodelado buenos acabados</span>
+                        </div>
+                        <div class="property-price">$2.500.000/mes</div>
+                        <a href="pages/locales/callejón-de-los-fritos-calle-del-comercio.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/centro calle de los celulares/PORTADA.jpg" alt="Local Comercial centro calle de los celulares">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/centro-calle-de-los-celulares.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - centro calle de los celulares</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el centro calle de los celulares,cerca del jaramillo, excelente punto estratégico</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el centro calle de los celulares,cerca del jaramillo, excelente punto estratégico</span>
+                        </div>
+                        <div class="property-price">$400.000/mes</div>
+                        <a href="pages/locales/centro-calle-de-los-celulares.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/centro cerete OJO SEGUNDO PISO/PORTADA.jpg" alt="Local Comercial centro cerete OJO SEGUNDO PISO">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/centro-cerete-ojo-segundo-piso.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - centro cerete OJO SEGUNDO PISO</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> </p>
+                        <div class="property-features">
+                            
+                        </div>
+                        <div class="property-price">$3.000.000/mes</div>
+                        <a href="pages/locales/centro-cerete-ojo-segundo-piso.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/centro de cerete estrategicamente/PORTADA.jpg" alt="Local Comercial centro de cerete estrategicamente">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/centro-de-cerete-estrategicamente.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - centro de cerete estrategicamente</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el centro de cerete estrategicamente</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el centro de cerete estrategicamente</span>
+                        </div>
+                        <div class="property-price">$16.000.0000/mes</div>
+                        <a href="pages/locales/centro-de-cerete-estrategicamente.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/el corazon de la avenida santander/PORTADA.jpg" alt="Local Comercial el corazon de la avenida santander">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/el-corazon-de-la-avenida-santander.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - el corazon de la avenida santander</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el corazon de la avenida santander alto flujo peatonal y vehículos medidas de 8 de frente por 19 de fondo  152 metros cuadrado aproximadamente</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el corazon de la avenida santander alto flujo peatonal y vehículos medidas de 8 de frente por 19 de fondo  152 metros cuadrado aproximadamente</span>
+                        </div>
+                        <div class="property-price">$800.000/mes</div>
+                        <a href="pages/locales/el-corazon-de-la-avenida-santander.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>                <div class="property-card" data-category="arriendo local" data-aos="fade-up">
+                    <div class="property-image">
+                        <img src="assets/img/LOCALES/parquete central de cerete/PORTADA.jpg" alt="Local Comercial parquete central de cerete">
+                        <div class="property-overlay">
+                            <span class="property-status arriendo">En Arriendo</span>
+                        </div>
+                        <a href="pages/locales/parquete-central-de-cerete.html" class="view-more-overlay">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Local Comercial - parquete central de cerete</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> el parquete central de cerete excelente ubicación</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-map-marker-alt"></i> el parquete central de cerete excelente ubicación</span>
+                        </div>
+                        <div class="property-price">$5.500.0000/mes</div>
+                        <a href="pages/locales/parquete-central-de-cerete.html" class="btn btn-outline">Ver MÃ¡s InformaciÃ³n</a>
+                    </div>
+                </div>        </div>      </div>
     </section>
-
+    <!-- Auto-generated Catalog END -->
+  
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col" data-aos="fade-up">
                     <div class="footer-logo">
-                        <img src="assets/ico/logo.jpg" alt="Integrales inmobiliaria & Abogados">
+                        <picture>
+                            <source srcset="assets/ico/logo.svg" type="image/svg+xml">
+                            <img src="assets/ico/logo.jpg" alt="Integrales inmobiliaria & Abogados">
+                        </picture>
                         <h3>INTEGARLES Cerete</h3>
                     </div>
                     <p>Tu aliado confiable en el mercado inmobiliario de Cereté, Córdoba. Conectando personas con sus hogares ideales.</p>
@@ -657,12 +1423,6 @@
                         </a>
                         <a href="https://wa.me/573217395050" target="_blank" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
@@ -700,12 +1460,9 @@
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <span>+57 321 739 5050</span>
+                            <span>+57 301 571 7622 / +57 300 725 6161</span>
                         </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@integarlescerete.com</span>
-                        </li>
+                        
                         <li>
                             <i class="fas fa-clock"></i>
                             <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
