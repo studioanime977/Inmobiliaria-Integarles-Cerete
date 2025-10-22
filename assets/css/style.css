@@ -157,15 +157,33 @@ p {
     align-items: center;
 }
 
-.logo {
-    display: flex;
+/* Mostrar texto de marca al lado del logo */
+.header .logo {
+    display: inline-flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+}
+.header .logo .logo-link{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#0f172a;
+}
+.header .logo img{
+    display:block;
+    max-height:48px;
+    height:auto;
+}
+.header .logo .brand-name {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #0f172a;
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: auto;
 }
 
 .logo h1 {
@@ -222,6 +240,19 @@ p {
     transition: var(--transition);
 }
 
+/* ===== Responsive Header: solo menú en móvil ===== */
+@media (max-width: 768px) {
+  .header-main { padding: 8px 12px; }
+  .logo img { width: 88px; }
+  .header .logo .brand-name { display: none; }
+
+  .mobile-menu-toggle { display: flex; }
+
+  .main-nav { position: fixed; top: 56px; left: 0; right: 0; background: #fff; box-shadow: var(--shadow-sm); display: none; padding: 12px 16px; z-index: 1000; }
+  .main-nav.active { display: block; }
+  .main-nav ul { flex-direction: column; gap: 14px; }
+  .main-nav a { font-size: 0.95rem; padding: 8px 4px; }
+}
 /* Hero Section */
 .hero {
     position: relative;
@@ -1076,7 +1107,7 @@ p {
 .footer{background:#0f172a;color:#cbd5e1;padding:60px 0 24px;margin-top:60px}
 .footer .container{max-width:1100px;margin:0 auto;padding:0 16px}
 .footer-content{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;align-items:start}
-.footer-logo img{width:56px;height:auto;border-radius:8px}
+.footer-logo img{width:110px;height:auto;border-radius:8px}
 .footer-logo h3{font-size:18px;color:#e2e8f0;margin:12px 0 4px}
 .footer-col p{margin:8px 0 16px;color:#94a3b8}
 .footer-col h4{font-size:16px;color:#e2e8f0;margin-bottom:12px}
@@ -1129,3 +1160,43 @@ p {
 .property-info h3{font-size:16px;margin:0 0 8px;color:#1c2434}
 .property-info .btn{display:inline-block;background:#0b7dda;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
 .property-info .btn:hover{background:#095ea6}
+/* Featured Properties - polished UI */
+.featured-section .container{max-width:1100px;margin:0 auto;padding:0 16px}
+.featured-section .section-title{color:#0f172a;margin:0 0 6px;text-align:center}
+.section-subtitle{color:#475569;margin:0 0 16px;text-align:center}
+
+/* Filters */
+.featured-filters{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;justify-content:center}
+.filter-btn{background:#e2e8f0;color:#0f172a;border:none;padding:10px 14px;border-radius:999px;cursor:pointer;transition:var(--transition);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.filter-btn:hover{transform:translateY(-2px)}
+.filter-btn.active{background:#0b7dda;color:#fff;box-shadow:0 6px 16px rgba(11,125,218,.35)}
+
+/* Grid */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+
+/* Card */
+.featured-card{background:#fff;border-radius:16px;border:1px solid #e6e6e6;box-shadow:0 8px 16px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+.featured-card:hover{transform:translateY(-4px);box-shadow:0 16px 28px rgba(0,0,0,.12)}
+
+/* Image */
+.featured-image{position:relative;height:190px;overflow:hidden}
+.featured-image img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.featured-card:hover .featured-image img{transform:scale(1.05)}
+.featured-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 60%, rgba(0,0,0,.12) 100%);opacity:0;transition:opacity .2s ease}
+.featured-card:hover .featured-image::after{opacity:1}
+
+/* Content */
+.featured-info{padding:24px 20px;display:flex;flex-direction:column;gap:12px;text-align:center;align-items:center;justify-content:center}
+.featured-info h3{font-size:1.2rem;margin:0 16px;color:#1c2434;font-weight:700;line-height:1.3}
+.featured-info p{color:#475569;font-size:.95rem;line-height:1.6;margin:0 16px;padding:0;box-sizing:border-box}
+
+/* Pills */
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;margin:0 0 4px 0;background:#eef2ff;color:#312e81;border:1px solid #c7d2fe}
+.pill-venta{background:#dcfce7;color:#166534;border-color:#bbf7d0}
+.pill-arriendo{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+
+/* Button */
+.featured-info .btn{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b7dda,#095ea6);color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;box-shadow:0 8px 16px rgba(11,125,218,.3);transition:all .3s ease;font-weight:600;font-size:.95rem;min-width:160px;margin:8px 0 0 0;align-self:center}
+.featured-info .btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(9,94,166,.35);background:linear-gradient(135deg,#095ea6,#074a85)}
+.featured-info .btn::after{content:"→";display:inline-block;margin-left:8px;transition:transform .3s ease}
+.featured-info .btn:hover::after{transform:translateX(3px)}

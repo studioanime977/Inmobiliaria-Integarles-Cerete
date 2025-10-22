@@ -36,6 +36,18 @@
             $('#nav-menu').removeClass('active');
         });
 
+        // Brand click reload (logo + texto)
+        $('.logo .logo-link').on('click', function(e){
+            e.preventDefault();
+            // Si ya estamos en el inicio, recarga; si no, navega al inicio y luego recarga
+            if (location.hash === '#inicio' || location.pathname.endsWith('index.html') || location.pathname === '/') {
+                location.reload();
+            } else {
+                window.location.href = 'index.html#inicio';
+                setTimeout(function(){ location.reload(); }, 100);
+            }
+        });
+
         // Close mobile menu when clicking outside
         $(document).on('click', function(e) {
             if (!$(e.target).closest('.nav-wrapper').length) {
@@ -138,18 +150,35 @@
         });
 
         // Search Form
+        // Search form submit: filter featured cards on homepage
         $('.search-form').on('submit', function(e) {
-            e.preventDefault();
-            
-            const tipo = $('#tipo').val();
-            const propiedad = $('#propiedad').val();
-            const ubicacion = $('#ubicacion').val();
-            
-            console.log('Búsqueda:', {tipo, propiedad, ubicacion});
-            
-            // Aquí puedes implementar la lógica de búsqueda
-            alert('Funcionalidad de búsqueda en desarrollo. Parámetros:\nTipo: ' + tipo + '\nPropiedad: ' + propiedad + '\nUbicación: ' + ubicacion);
+          e.preventDefault();
+          const tipo = $('#tipo').val(); // '' | 'arriendo' | 'venta'
+          const propiedad = $('#propiedad').val(); // '' | 'apartamento' | 'casa' | 'local'
+          const ubicacion = ($('#ubicacion').val() || '').trim().toLowerCase();
+        
+          const $cards = $('.featured-card');
+          if ($cards.length === 0) {
+            // If no featured cards on this page, do nothing (other pages)
+            return;
+          }
+        
+          $cards.each(function(){
+            const $c = $(this);
+            const status = ($c.attr('data-status') || '').toLowerCase();
+            const type = ($c.attr('data-type') || '').toLowerCase();
+            const city = ($c.attr('data-city') || '').toLowerCase();
+            const text = ($c.text() || '').toLowerCase();
+        
+            const matchTipo = !tipo || status === tipo;
+            const matchTipoProp = !propiedad || type === propiedad;
+            const matchCity = !ubicacion || city.includes(ubicacion) || text.includes(ubicacion);
+        
+            const show = matchTipo && matchTipoProp && matchCity;
+            $c.toggle(show);
+          });
         });
+
 
         // Property Filters
         $('.filter-btn').on('click', function() {
@@ -168,6 +197,24 @@
                 $('.property-card').hide();
                 $('.property-card[data-category*="' + filter + '"]').fadeIn(300);
             }
+        });
+
+        // Featured Filters (homepage)
+        $('.featured-section .filter-btn').on('click', function(e) {
+            e.preventDefault();
+            const f = $(this).data('filter');
+            $('.featured-section .filter-btn').removeClass('active');
+            $(this).addClass('active');
+            $('.featured-card').each(function(){
+                const status = ($(this).attr('data-status') || '');
+                const type   = ($(this).attr('data-type') || '');
+                const show = f === 'todas' ||
+                             (f === 'venta' && status === 'venta') ||
+                             (f === 'arriendo' && status === 'arriendo') ||
+                             (f === 'locales' && type === 'local') ||
+                             (f === 'vivienda' && type === 'vivienda');
+                $(this).toggle(show);
+            });
         });
 
         // Property Card Favorite Toggle
@@ -479,6 +526,119 @@
                 });
             }).catch((err) => {
                 console.error('Google Maps script load failed', err);
+            });
+        })();
+
+        // =====================
+        // Viviendas en destacados
+        // =====================
+        (function(){
+            const $grid = $('.featured-section .featured-grid');
+            if ($grid.length === 0) return;
+
+            const viviendas = [
+              { folder: 'Barrio santa paula', title: 'Barrio santa paula' },
+              { folder: 'PELAYO  cerca de la bomba entrada principal', title: 'PELAYO cerca de la bomba entrada principal' },
+              { folder: 'altos del noval 2', title: 'Altos del Noval 2' },
+              { folder: 'barrio 24 de mayo cerca del colegio', title: 'Barrio 24 de Mayo cerca del colegio' },
+              { folder: 'barrio 24 de mayo urbanización San rafael', title: 'Barrio 24 de Mayo - Urbanización San Rafael' },
+              { folder: 'barrio San Nicola', title: 'Barrio San Nicola' },
+              { folder: 'barrio San Nicolas en toda la calle del cementerio', title: 'Barrio San Nicolas en toda la calle del cementerio' },
+              { folder: 'barrio San diego consta de 3 habitaciones', title: 'Barrio San Diego - Consta de 3 habitaciones' },
+              { folder: 'barrio San diego', title: 'Barrio San Diego' },
+              { folder: 'barrio corinto, consta de 2 habitaciones', title: 'Barrio Corinto - Consta de 2 habitaciones' },
+              { folder: 'barrio corinto', title: 'Barrio Corinto' },
+              { folder: 'barrio el edén cerete', title: 'Barrio el Edén Cereté' },
+              { folder: 'barrio el edén consta de 3 habitacione', title: 'Barrio el Edén - Consta de 3 habitaciones' },
+              { folder: 'barrio el edén cuenta con 2 habitaciones', title: 'Barrio el Edén - Cuenta con 2 habitaciones' },
+              { folder: 'barrio el noval frente a la calle de ferromateriales garces', title: 'Barrio el Noval - Frente a Ferromateriales Garcés' },
+              { folder: 'barrio el pardo consta de 3', title: 'Barrio el Prado - Consta de 3' },
+              { folder: 'barrio el prado al frente de la salida de colegio de los niños', title: 'Barrio el Prado - Frente a salida de colegio' },
+              { folder: 'barrio el prado cuenta con 3 habitaciones', title: 'Barrio el Prado - Cuenta con 3 habitaciones' },
+              { folder: 'barrio el prado de cereté', title: 'Barrio el Prado de Cereté' },
+              { folder: 'barrio el prado', title: 'Barrio el Prado' },
+              { folder: 'barrio la gloria consta de 3 habitacione', title: 'Barrio la Gloria - Consta de 3 habitaciones' },
+              { folder: 'barrio santa clara consta de 3 habitaciones', title: 'Barrio Santa Clara - Consta de 3 habitaciones' },
+              { folder: 'barrio santa clara frente a frutitodo', title: 'Barrio Santa Clara - Frente a Frutitodo' },
+              { folder: 'barrio santa clara, cerca del parque', title: 'Barrio Santa Clara - Cerca del parque' },
+              { folder: 'barrio santa clara', title: 'Barrio Santa Clara' },
+              { folder: 'barrio santa paula, consta de 2 habitaciones', title: 'Barrio Santa Paula - Consta de 2 habitaciones' },
+              { folder: 'barrio santa teresa consta 3 habitaciones', title: 'Barrio Santa Teresa - Consta 3 habitaciones' },
+              { folder: 'barrio venus cereté', title: 'Barrio Venus Cereté' },
+              { folder: 'barrio venus', title: 'Barrio Venus' },
+              { folder: 'calle 23 de la gloria cuenta con 4 habitaciones', title: 'Calle 23 de la Gloria - Cuenta con 4 habitaciones' },
+              { folder: 'calle cartagenita cerca de billares el hipico', title: 'Calle Cartagenita - Cerca de billares El Hípico' },
+              { folder: 'calle cartagenita cerca del marceliano polo', title: 'Calle Cartagenita - Cerca del Marceliano Polo' },
+              { folder: 'calle cartagenita en todo los semáforos', title: 'Calle Cartagenita - En todos los semáforos' },
+              { folder: 'calle principal  del cañito', title: 'Calle Principal del Cañito' },
+              { folder: 'edificio que está en los semáforos del granero jaramillo', title: 'Edificio en los semáforos del Granero Jaramillo' },
+              { folder: 'garzones monteria', title: 'Garzones Montería' },
+              { folder: 'orilla del rio centro', title: 'Orilla del río - Centro' },
+              { folder: 'retiro de los indios', title: 'Retiro de los Indios' }
+            ];
+
+            function createCard(v) {
+              const base = 'assets/img/VIVIENDAS/' + v.folder;
+              const $card = $('<article/>', {
+                class: 'featured-card',
+                'data-type': 'vivienda',
+                'data-status': 'arriendo',
+                'data-city': 'cerete'
+              });
+              const $img = $('<img/>', { alt: 'Vivienda - ' + v.title });
+              // Intento inicial a PORTADA.jpg, se resolverá por fallback onerror más abajo
+              $img.attr('src', base + '/PORTADA.jpg');
+              const $content = $('<div/>', { class: 'card-content' });
+              $content.append($('<h3/>').text(v.title));
+              const $p = $('<p/>', {
+                class: 'info-text',
+                'data-info-src': base + '/INFO.txt'
+              }).text('Cargando información...');
+              $content.append($p);
+              $content.append($('<a/>', {
+                class: 'btn btn-outline',
+                href: base + '/index.html'
+              }).text('Ver más información'));
+              $card.append($img).append($content);
+              return $card;
+            }
+
+            // Agregar tarjetas
+            viviendas.forEach(v => { $grid.append(createCard(v)); });
+
+            // Resolver imágenes de portada con fallback y cargar INFO.txt
+            const $viviendaCards = $('.featured-card[data-type="vivienda"]');
+            $viviendaCards.each(function(){
+              const $card = $(this);
+              const imgEl = $card.find('img')[0];
+              const $info = $card.find('.info-text');
+
+              // Fallback de imagen
+              if (imgEl) {
+                const basePath = (imgEl.getAttribute('src') || '').replace(/\\/g,'/').replace(/\/PORTADA\.jpg$/i,'');
+                const candidates = ['PORTADA.jpg','portada.jpg','Portada.jpg','1.jpg'];
+                let i = 0;
+                const tryNext = () => {
+                  if (i >= candidates.length) return;
+                  imgEl.src = basePath + '/' + candidates[i++];
+                };
+                imgEl.onerror = tryNext;
+              }
+
+              // Cargar descripción desde INFO.txt
+              if ($info.length) {
+                const infoSrc = $info.attr('data-info-src');
+                if (infoSrc) {
+                  fetch(infoSrc).then(r => {
+                    if (!r.ok) throw new Error('no ok');
+                    return r.text();
+                  }).then(t => {
+                    $info.html(t.replace(/\n/g,'<br>'));
+                  }).catch(() => {
+                    $info.text('Información disponible en el detalle.');
+                  });
+                }
+              }
             });
         })();
 
