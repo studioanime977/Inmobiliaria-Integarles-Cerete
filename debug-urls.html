@@ -1,0 +1,115 @@
+// Script para verificar URLs en el navegador
+// Copia y pega este código en la consola del navegador (F12)
+
+console.log('🔍 VERIFICACIÓN DE URLs EN NAVEGADOR');
+console.log('═'.repeat(50));
+
+// Verificar la URL base actual
+console.log('🌐 URL BASE ACTUAL:');
+console.log('window.location.origin:', window.location.origin);
+console.log('window.location.href:', window.location.href);
+console.log('window.location.protocol:', window.location.protocol);
+console.log('');
+
+// Función buildAbsUrl del código actual
+function buildAbsUrl(path){
+  try {
+    // Si ya es una URL completa, devolverla tal cual
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+
+    // Construir URL basada en el entorno actual
+    const baseUrl = window.location.origin;
+
+    // Si el path ya incluye assets/img/, usarlo directamente
+    if (path.startsWith('assets/')) {
+      return baseUrl + '/' + path;
+    }
+
+    // Si no, agregar el prefijo assets/img/
+    return baseUrl + '/assets/img/' + path;
+  } catch(e) {
+    console.error('Error construyendo la URL absoluta:', e);
+    // Como fallback, intentar construir una URL relativa simple
+    return new URL(path, window.location.href).href;
+  }
+}
+
+// Función buildWhatsAppText del código actual
+function buildWhatsAppText(title, category, path, info, price){
+  const kind = category === 'locales' ? 'local comercial' : 'vivienda';
+  const url = buildAbsUrl(path);
+
+  let priceText = '';
+  if(price && typeof price === 'number'){
+    priceText = `\n💰 Precio: $${price.toLocaleString('es-CO')}`;
+  }
+
+  const message = `¡Hola! 👋
+
+Me interesa esta propiedad que vi en su página web:
+
+🏠 *${title}*
+📍 Tipo: ${kind.charAt(0).toUpperCase() + kind.slice(1)}${priceText}
+
+🔗 Ver detalles completos:
+${url}
+
+¿Podrían darme más información sobre disponibilidad y condiciones de arriendo?
+
+¡Gracias!`;
+
+  return message;
+}
+
+// Función para codificar mensaje de WhatsApp
+function encodeWhatsAppMessage(message) {
+  return message.replace(/\n/g, '%0A').replace(/\s+/g, '%20');
+}
+
+// Probar con datos reales del content-index.json
+console.log('🧪 PRUEBA CON DATOS REALES:');
+console.log('─'.repeat(50));
+
+const testPaths = [
+  "assets/img/VIVIENDAS/orilla-del-rio-centro/index.html",
+  "assets/img/LOCALES/barrio-santa-teresa/index.html",
+  "assets/img/VIVIENDAS/barrio-santa-clara/index.html"
+];
+
+testPaths.forEach((path, index) => {
+  console.log(`\n📁 PRUEBA ${index + 1}: ${path}`);
+
+  const url = buildAbsUrl(path);
+  console.log(`🔗 URL GENERADA: ${url}`);
+
+  const hasPercent20 = url.includes('%20');
+  console.log(`❌ CONTIENE %20: ${hasPercent20 ? 'SÍ (PROBLEMA)' : 'NO (CORRECTO)'}`);
+
+  // Probar el mensaje completo de WhatsApp
+  const whatsappMessage = buildWhatsAppText(
+    `Propiedad-${index + 1}`,
+    'viviendas',
+    path,
+    'Descripción de prueba',
+    500000
+  );
+
+  const whatsappEncoded = encodeWhatsAppMessage(whatsappMessage);
+  const whatsappUrl = `https://wa.me/573015717622?text=${whatsappEncoded}`;
+
+  console.log(`📱 URL WHATSAPP: ${whatsappUrl}`);
+  console.log(`📱 CONTIENE %20: ${whatsappUrl.includes('%20') ? 'SÍ (PROBLEMA)' : 'NO (CORRECTO)'}`);
+
+  console.log('\n📝 MENSAJE COMPLETO:');
+  console.log(whatsappMessage);
+  console.log('');
+});
+
+console.log('🎯 INSTRUCCIONES PARA DEPURAR:');
+console.log('1. Abre el chatbot en la página');
+console.log('2. Busca una propiedad (ej: "orilla")');
+console.log('3. Haz clic en "💬 Consultar por WhatsApp"');
+console.log('4. Revisa la consola (F12) para ver los logs');
+console.log('5. Verifica que la URL no contenga %20');

@@ -800,14 +800,26 @@
       console.log('⚠️ Detectado protocolo file:// - usando rutas relativas');
     } else {
       // Servidor HTTP - usar rutas normales
-      const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+      let baseUrl;
+
+      // Detectar si estamos en Vercel o localhost
+      if(window.location.hostname.includes('vercel.app') || window.location.hostname.includes('inmobiliariaintegarlescerete.vercel.app')) {
+        // En producción (Vercel) - usar URL completa
+        baseUrl = window.location.origin;
+        console.log('🌐 Detectado entorno de producción (Vercel)');
+      } else {
+        // En desarrollo (localhost) - usar URL base
+        baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        console.log('🏠 Detectado entorno de desarrollo (localhost)');
+      }
+
       paths = [
         baseUrl + 'assets/data/content-index.json',
         'assets/data/content-index.json',
         './assets/data/content-index.json',
         '/assets/data/content-index.json'
       ];
-      console.log('✅ Detectado servidor HTTP');
+      console.log('✅ Detectado servidor HTTP - Base URL:', baseUrl);
     }
     
     for(const path of paths){
@@ -980,7 +992,7 @@
           ${priceText}
           ${infoPreview}
           <div style=\"display:flex;gap:8px;margin-top:10px;flex-wrap:wrap\">
-            <a href=\"${it.path}\" target=\"_self\" class=\"result-link\" style=\"display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#3b82f6;color:#fff;text-decoration:none;font-size:13px;font-weight:500\">📄 Ver detalle completo</a>
+            <a href=\"${buildAbsUrl(it.path)}\" onclick=\"console.log('🔗 Enlace clickeado:', '${buildAbsUrl(it.path)}'); console.log('📁 Path original:', '${it.path}');\" target=\"_self\" class=\"result-link\" style=\"display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#3b82f6;color:#fff;text-decoration:none;font-size:13px;font-weight:500\">📄 Ver detalle completo</a>
             <button class=\"wa-item\" data-path=\"${it.path}\" data-title=\"${it.title.replace(/\"/g,'&quot;')}\" data-category=\"${it.category}\" data-price=\"${it.price || ''}\" data-info=\"${(it.info || '').replace(/\"/g, '&quot;').substring(0, 100)}\" style=\"display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#25D366;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:500\">💬 Consultar por WhatsApp</button>
           </div>
         </div>
@@ -990,12 +1002,57 @@
   }
 
   function buildAbsUrl(path){
+    console.log('🔧 buildAbsUrl llamado con:', path);
+
     try {
-      // El path ya viene limpio desde el script, solo agregar la URL base
-      const baseUrl = window.location.origin;
-      return baseUrl + '/' + path;
+      // Si ya es una URL completa, devolverla tal cual
+      if (path.startsWith('http://') || path.startsWith('https://')) {
+        console.log('✅ URL completa detectada:', path);
+        return path;
+      }
+
+      // Detectar el entorno actual
+      const isProduction = window.location.hostname.includes('vercel.app') ||
+                          window.location.hostname.includes('inmobiliariaintegarlescerete.vercel.app');
+      const isLocalhost = window.location.hostname === 'localhost' ||
+                         window.location.hostname === '127.0.0.1';
+
+      let baseUrl;
+
+      if (isProduction) {
+        // En producción (Vercel) - usar URL completa del sitio
+        baseUrl = window.location.origin;
+        console.log('🌐 Entorno producción - Base URL:', baseUrl);
+      } else if (isLocalhost) {
+        // En desarrollo (localhost) - usar URL con ruta base
+        baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        console.log('🏠 Entorno desarrollo - Base URL:', baseUrl);
+      } else {
+        // Otros entornos - fallback
+        baseUrl = window.location.origin;
+        console.log('❓ Entorno desconocido - Base URL:', baseUrl);
+      }
+
+      console.log('📁 Path a procesar:', path);
+      console.log('🔗 Base URL:', baseUrl);
+
+      // Si el path ya incluye assets/img/, usarlo directamente
+      if (path.startsWith('assets/')) {
+        const finalUrl = baseUrl + '/' + path;
+        console.log('🔗 URL final generada (assets/):', finalUrl);
+        console.log('❌ Contiene %20:', finalUrl.includes('%20'));
+        return finalUrl;
+      }
+
+      // Si no, agregar el prefijo assets/img/
+      const finalUrl = baseUrl + '/assets/img/' + path;
+      console.log('🔗 URL final generada (sin assets/):', finalUrl);
+      console.log('❌ Contiene %20:', finalUrl.includes('%20'));
+      return finalUrl;
     } catch(e) {
-      console.error('Error construyendo la URL absoluta:', e);
+      console.error('❌ Error construyendo la URL absoluta:', e);
+      console.error('🔧 Path original:', path);
+      console.error('🔧 window.location:', window.location.href);
       // Como fallback, intentar construir una URL relativa simple
       return new URL(path, window.location.href).href;
     }
@@ -1004,13 +1061,13 @@
   function buildWhatsAppText(title, category, path, info, price){
     const kind = category === 'locales' ? 'local comercial' : 'vivienda';
     const url = buildAbsUrl(path);
-    
+
     // Extraer información clave del info
     let priceText = '';
     if(price && typeof price === 'number'){
       priceText = `\n💰 Precio: $${price.toLocaleString('es-CO')}`;
     }
-    
+
     // Construir mensaje profesional
     const message = `¡Hola! 👋
 
@@ -1025,7 +1082,7 @@ ${url}
 ¿Podrían darme más información sobre disponibilidad y condiciones de arriendo?
 
 ¡Gracias!`;
-    
+
     return message;
   }
 
@@ -1033,28 +1090,40 @@ ${url}
   (document.body || document.querySelector('body')).addEventListener('click', async (e)=>{
     const btn = e.target.closest('.wa-item');
     if(!btn) return;
-    
+
     const {title, category, path, info, price} = btn.dataset;
     const priceNum = price ? parseInt(price, 10) : null;
-    const text = buildWhatsAppText(title, category, path, info, priceNum);
-    
+
+    console.log('🔍 DEPURACIÓN WHATSAPP:');
+    console.log('📋 Datos del botón:', {title, category, path, info, price});
+    console.log('🔗 Path original:', path);
+
+    const url = buildAbsUrl(path);
+    console.log('🌐 URL generada:', url);
+    console.log('❌ Contiene %20:', url.includes('%20'));
+
+    const fullMessage = buildWhatsAppText(title, category, path, info, priceNum);
+    console.log('📱 Mensaje completo:', fullMessage);
+
+    // Codificar solo el texto del mensaje, manteniendo la URL intacta
+    const messageText = fullMessage.replace(/\n/g, '%0A').replace(/\s+/g, '%20');
+    const whatsappUrl = `https://wa.me/573015717622?text=${messageText}`;
+
+    console.log('📲 URL WhatsApp final:', whatsappUrl);
+    console.log('❌ WhatsApp contiene %20:', whatsappUrl.includes('%20'));
+
     // Intentar copiar al portapapeles
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(fullMessage);
       await appendMessageWithDelay('✅ ¡Perfecto! Copié el mensaje al portapapeles.', 'bot', null, 400);
       await appendMessageWithDelay('📱 Abriendo WhatsApp... Solo pega el mensaje (Ctrl+V) y envía.', 'bot', null, 600);
     } catch(err){
       // Si falla, mostrar el mensaje para copiar manualmente
       await appendMessageWithDelay('📋 Copia este mensaje y envíalo por WhatsApp:', 'bot', null, 400);
-      await appendMessageWithDelay(text, 'bot', null, 600);
+      await appendMessageWithDelay(fullMessage, 'bot', null, 600);
     }
-    
-    // Abrir WhatsApp con el número de la inmobiliaria
-    const phoneNumber = '573015717622'; // Formato internacional sin +
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
-    
-    // Abrir en nueva pestaña
+
+    // Abrir WhatsApp con el mensaje pre-cargado
     window.open(whatsappUrl, '_blank');
   });
 
