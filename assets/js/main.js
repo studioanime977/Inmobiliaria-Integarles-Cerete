@@ -990,13 +990,14 @@
   }
 
   function buildAbsUrl(path){
-    try{ 
-      // Construir URL absoluta desde la raíz del sitio
+    try {
+      // El path ya viene limpio desde el script, solo agregar la URL base
       const baseUrl = window.location.origin;
-      const cleanPath = path.startsWith('/') ? path : '/' + path;
-      return baseUrl + cleanPath;
-    } catch(e){ 
-      return path; 
+      return baseUrl + '/' + path;
+    } catch(e) {
+      console.error('Error construyendo la URL absoluta:', e);
+      // Como fallback, intentar construir una URL relativa simple
+      return new URL(path, window.location.href).href;
     }
   }
 

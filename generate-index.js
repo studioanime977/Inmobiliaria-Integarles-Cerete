@@ -12,6 +12,15 @@ function normalizeTitle(folderName) {
     .join(' ');
 }
 
+// Función para normalizar paths de carpetas (eliminar espacios y caracteres especiales)
+function normalizePath(folderName) {
+  return folderName
+    .replace(/\s+/g, '-') // Reemplazar espacios por guiones
+    .replace(/[^a-zA-Z0-9\-]/g, '') // Remover caracteres especiales
+    .replace(/-+/g, '-') // Reemplazar múltiples guiones por uno solo
+    .toLowerCase();
+}
+
 // Función para extraer precio del texto INFO
 function extractPrice(text) {
   const match = text.match(/VALOR\s*\$?\s*([\d.,]+)/i);
@@ -88,8 +97,9 @@ function scanFolder(basePath, category) {
             const status = extractStatus(infoText);
             const keywords = generateKeywords(title, infoText);
             
-            // Generar path relativo para el HTML
-            const relativePath = `assets/img/${category}/${folder.name}/index.html`;
+            // Generar path relativo para el HTML con nombre limpio
+            const cleanFolderName = normalizePath(folder.name);
+            const relativePath = `assets/img/${category}/${cleanFolderName}/index.html`;
             
             items.push({
               category: category.toLowerCase(),

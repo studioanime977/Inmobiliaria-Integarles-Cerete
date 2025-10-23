@@ -9,10 +9,10 @@
   "items": [
     {
       "category": "locales",
-      "title": "Barrio Santa Teresa",
-      "path": "assets/img/LOCALES/barrio santa Teresa/index.html",
+      "title": "Barrio-santa-teresa",
+      "path": "assets/img/LOCALES/barrio-santa-teresa/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-teresa",
         "santa",
         "teresa",
         "frente",
@@ -26,14 +26,14 @@
       "status": "arriendo",
       "price": 500000,
       "info": "ARRIENDO LOCAL COMERCIAL: Esta ubicado en el barrio santa Teresa  frente a la sede del mismo nombre consta de un área de 3.5 de frente por 6 metros de fondo aproximadamente, lugar estratégico VALOR $500.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa Teresa"
+      "folder": "barrio-santa-teresa"
     },
     {
       "category": "locales",
-      "title": "Barrio Santa Teresa En La Calle Principal",
-      "path": "assets/img/LOCALES/barrio santa teresa en la calle principal/index.html",
+      "title": "Barrio-santa-teresa-en-la-calle-principal",
+      "path": "assets/img/LOCALES/barrio-santa-teresa-en-la-calle-principal/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-teresa-en-la-calle-principal",
         "santa",
         "teresa",
         "calle",
@@ -42,14 +42,14 @@
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado  en el barrio santa teresa en la calle principal a 3 casa de CABLETELCO SEDE CERETÉ consta de 9 metros de fondo por 4 metros de ancho baño interno VALOR $600.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa teresa en la calle principal"
+      "folder": "barrio-santa-teresa-en-la-calle-principal"
     },
     {
       "category": "locales",
-      "title": "Calle Del Banco Agrario Cerete",
-      "path": "assets/img/LOCALES/calle del banco agrario cerete/index.html",
+      "title": "Calle-del-banco-agrario-cerete",
+      "path": "assets/img/LOCALES/calle-del-banco-agrario-cerete/index.html",
       "keywords": [
-        "calle",
+        "calle-del-banco-agrario-cerete",
         "del",
         "banco",
         "agrario",
@@ -58,14 +58,14 @@
       "status": "arriendo",
       "price": 3500000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en la calle del banco agrario cerete, cuenta con casi 200 mts cuadrado MEDIDAS APROX  7 × 24  excelentes acabados, incluye división de segunda plata cuenta con 2 baños VALOR $3.500.000 TEL 3015717622-3007256161",
-      "folder": "calle del banco agrario cerete"
+      "folder": "calle-del-banco-agrario-cerete"
     },
     {
       "category": "locales",
-      "title": "Calle Del Cementerio Consta De 3",
-      "path": "assets/img/LOCALES/calle del cementerio consta de 3/index.html",
+      "title": "Calle-del-cementerio-consta-de-3",
+      "path": "assets/img/LOCALES/calle-del-cementerio-consta-de-3/index.html",
       "keywords": [
-        "calle",
+        "calle-del-cementerio-consta-de-3",
         "del",
         "cementerio",
         "consta"
@@ -73,14 +73,14 @@
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en la calle del cementerio consta de 3 metros de frente aproximadamente  y 9 metros de fondo aproximadamente buena ubicación, ideal para emprendedores tiene baño interno VALOR $ 600.000 TEL 3015717622-3007256161",
-      "folder": "calle del cementerio consta de 3"
+      "folder": "calle-del-cementerio-consta-de-3"
     },
     {
       "category": "locales",
-      "title": "Calle Del Cementerio Frente A Frutitodo",
-      "path": "assets/img/LOCALES/calle del cementerio frente a frutitodo/index.html",
+      "title": "Calle-del-cementerio-frente-a-frutitodo",
+      "path": "assets/img/LOCALES/calle-del-cementerio-frente-a-frutitodo/index.html",
       "keywords": [
-        "calle",
+        "calle-del-cementerio-frente-a-frutitodo",
         "del",
         "cementerio",
         "frente",
@@ -91,17 +91,14 @@
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en la calle del cementerio frente a frutitodo cuenta con 4 metros de frente aproximadamente y 10 metros de fondo aproximadamente cuenta con baño interno buena ubicación VALOR $ 700.000 TEL 3015717622-3007256161",
-      "folder": "calle del cementerio frente a frutitodo"
+      "folder": "calle-del-cementerio-frente-a-frutitodo"
     },
     {
       "category": "locales",
-      "title": "Callejón De Los Fritos Calle Del Comercio",
-      "path": "assets/img/LOCALES/callejón de los fritos CALLE DEL COMERCIO/index.html",
+      "title": "Callejn-de-los-fritos-calle-del-comercio",
+      "path": "assets/img/LOCALES/callejn-de-los-fritos-calle-del-comercio/index.html",
       "keywords": [
-        "callejón",
-        "los",
-        "fritos",
-        "calle",
+        "callejn-de-los-fritos-calle-del-comercio",
         "del",
         "comercio",
         "cerete"
@@ -109,133 +106,112 @@
       "status": "arriendo",
       "price": 2500000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en el callejón de los fritos CALLE DEL COMERCIO CERETE,  recién remodelado buenos acabados cuenta con espacios amplios medidas 5 metros de frente por 18 metros de fondo medidas aproximadas VALOR $ 2.500.000 TEL 3015717622-3007256161",
-      "folder": "callejón de los fritos CALLE DEL COMERCIO"
+      "folder": "callejn-de-los-fritos-calle-del-comercio"
     },
     {
       "category": "locales",
-      "title": "Centro Calle De Los Celulares",
-      "path": "assets/img/LOCALES/centro calle de los celulares/index.html",
+      "title": "Centro-calle-de-los-celulares",
+      "path": "assets/img/LOCALES/centro-calle-de-los-celulares/index.html",
       "keywords": [
-        "centro",
-        "calle",
+        "centro-calle-de-los-celulares",
         "los",
         "celulares"
       ],
       "status": "arriendo",
       "price": 400000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en el centro calle de los celulares,cerca del jaramillo, excelente punto estratégico cuenta con medidas de 2 metros de frente por 5 metros de fondo aproximadamente cuenta con baño interno ideal para negocio de comidas OJO NO ACEPTAMOS NEGOCIO DE CELULARES VALOR $ 400.000",
-      "folder": "centro calle de los celulares"
+      "folder": "centro-calle-de-los-celulares"
     },
     {
       "category": "locales",
-      "title": "Centro Cerete Ojo Segundo Piso",
-      "path": "assets/img/LOCALES/centro cerete OJO SEGUNDO PISO/index.html",
+      "title": "Centro-cerete-ojo-segundo-piso",
+      "path": "assets/img/LOCALES/centro-cerete-ojo-segundo-piso/index.html",
       "keywords": [
-        "centro",
-        "cerete",
-        "ojo",
-        "segundo",
-        "piso"
+        "centro-cerete-ojo-segundo-piso"
       ],
       "status": "arriendo",
       "price": 3000000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado  en el centro cerete OJO SEGUNDO PISO cuenta con 350 metros cuadrados aproximadamente cuenta con 1 baño, zona de almacenamiento pequeña, ubicacion estratégica  excelentes acabados VALOR $3.000.000 TEL 3015717622-3007256161.",
-      "folder": "centro cerete OJO SEGUNDO PISO"
+      "folder": "centro-cerete-ojo-segundo-piso"
     },
     {
       "category": "locales",
-      "title": "Centro De Cerete Estrategicamente",
-      "path": "assets/img/LOCALES/centro de cerete estrategicamente/index.html",
+      "title": "Centro-de-cerete-estrategicamente",
+      "path": "assets/img/LOCALES/centro-de-cerete-estrategicamente/index.html",
       "keywords": [
-        "centro",
-        "cerete",
-        "estrategicamente"
+        "centro-de-cerete-estrategicamente"
       ],
       "status": "arriendo",
       "price": 160000000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en el centro de cerete estrategicamente cuenta con 444 metros cuadrados ideal para almacenes de cadenas o empresas constituidas excelentes acabados cuateo baños cocina VALOR 16.000.0000 TEL 3015717622-3007256161",
-      "folder": "centro de cerete estrategicamente"
+      "folder": "centro-de-cerete-estrategicamente"
     },
     {
       "category": "locales",
-      "title": "El Corazon De La Avenida Santander",
-      "path": "assets/img/LOCALES/el corazon de la avenida santander/index.html",
+      "title": "El-corazon-de-la-avenida-santander",
+      "path": "assets/img/LOCALES/el-corazon-de-la-avenida-santander/index.html",
       "keywords": [
-        "corazon",
-        "avenida",
-        "santander"
+        "el-corazon-de-la-avenida-santander"
       ],
       "status": "arriendo",
       "price": 800000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Consta de un lote de terreno ubicado en el corazon de la avenida santander alto flujo peatonal y vehículos medidas de 8 de frente por 19 de fondo  152 metros cuadrado aproximadamente VALOR $800.000 TEL 3015717622-3007256161",
-      "folder": "el corazon de la avenida santander"
+      "folder": "el-corazon-de-la-avenida-santander"
     },
     {
       "category": "locales",
-      "title": "Parquete Central De Cerete",
-      "path": "assets/img/LOCALES/parquete central de cerete/index.html",
+      "title": "Parquete-central-de-cerete",
+      "path": "assets/img/LOCALES/parquete-central-de-cerete/index.html",
       "keywords": [
-        "parquete",
-        "central",
-        "cerete"
+        "parquete-central-de-cerete"
       ],
       "status": "arriendo",
       "price": 55000000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en el parquete central de cerete excelente ubicación consta de aproximadamente 176 metros cuadrados medida de frente 8 x 22 de fondo buenos acabados baño interno VALOR $ 5.500.0000 TEL 3015717622-3007256161",
-      "folder": "parquete central de cerete"
+      "folder": "parquete-central-de-cerete"
     },
     {
       "category": "viviendas",
-      "title": "Altos Del Noval 2",
-      "path": "assets/img/VIVIENDAS/altos del noval 2/index.html",
+      "title": "Altos-del-noval-2",
+      "path": "assets/img/VIVIENDAS/altos-del-noval-2/index.html",
       "keywords": [
-        "altos",
-        "del",
-        "noval"
+        "altos-del-noval-2"
       ],
       "status": "arriendo",
       "price": 550000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en altos del noval 2  cañito cerete córdoba, consta de 3 habitaciones  sala comedor cocina 1 baño excelentes acabados toda la casa ya cuenta con cielorazo VALOR $550.000 TEL 3015717622-3007256161",
-      "folder": "altos del noval 2"
+      "folder": "altos-del-noval-2"
     },
     {
       "category": "viviendas",
-      "title": "Barrio 24 De Mayo Cerca Del Colegio",
-      "path": "assets/img/VIVIENDAS/barrio 24 de mayo cerca del colegio/index.html",
+      "title": "Barrio-24-de-mayo-cerca-del-colegio",
+      "path": "assets/img/VIVIENDAS/barrio-24-de-mayo-cerca-del-colegio/index.html",
       "keywords": [
-        "barrio",
-        "mayo",
-        "cerca",
-        "del",
-        "colegio"
+        "barrio-24-de-mayo-cerca-del-colegio"
       ],
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio 24 de mayo cerca del colegio a sólo 2 cuadras más adelante; consta de 3 habitaciones, sala comedor cocina abanico en 2 de los 3 cuartos, dos baños, patio interno, garaje eléctrico buenos acabados VALOR $600.000 TEL 3015717622-3007256161",
-      "folder": "barrio 24 de mayo cerca del colegio"
+      "folder": "barrio-24-de-mayo-cerca-del-colegio"
     },
     {
       "category": "viviendas",
-      "title": "Barrio 24 De Mayo Urbanización San Rafael",
-      "path": "assets/img/VIVIENDAS/barrio 24 de mayo urbanización San rafael/index.html",
+      "title": "Barrio-24-de-mayo-urbanizacin-san-rafael",
+      "path": "assets/img/VIVIENDAS/barrio-24-de-mayo-urbanizacin-san-rafael/index.html",
       "keywords": [
-        "barrio",
-        "mayo",
-        "urbanización",
-        "san",
-        "rafael"
+        "barrio-24-de-mayo-urbanizacin-san-rafael"
       ],
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio 24 de mayo urbanización San rafael cereté- córdoba consta de 2 habitaciones con closeth 2 baños y patio tipo kiosco buenos acabados TEL 3015717622-3007256161  VALOR 700.000",
-      "folder": "barrio 24 de mayo urbanización San rafael"
+      "folder": "barrio-24-de-mayo-urbanizacin-san-rafael"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Corinto",
-      "path": "assets/img/VIVIENDAS/barrio corinto/index.html",
+      "title": "Barrio-corinto",
+      "path": "assets/img/VIVIENDAS/barrio-corinto/index.html",
       "keywords": [
-        "barrio",
+        "barrio-corinto",
         "corinto",
         "ojo",
         "segundo",
@@ -246,30 +222,27 @@
       "status": "arriendo",
       "price": 650000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio corinto OJO SEGUNDO PISO  cuenta con 3 habitaciones  dos de las cuales tiene closeth, dos baños, sala, comedor cocina, buenos acabados NO TIENE PARA GUARDAR MOTO. VALOR $ 650.000  TEL 3015717622-3007256161.",
-      "folder": "barrio corinto"
+      "folder": "barrio-corinto"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Corinto, Consta De 2 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio corinto, consta de 2 habitaciones/index.html",
+      "title": "Barrio-corinto-consta-de-2-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-corinto-consta-de-2-habitaciones/index.html",
       "keywords": [
-        "barrio",
-        "corinto,",
-        "consta",
-        "habitaciones",
+        "barrio-corinto-consta-de-2-habitaciones",
         "corinto"
       ],
       "status": "arriendo",
       "price": 550000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio corinto, consta de 2 habitaciones  sala comedor cocina un solo baño, closeth en las dos habitaciones  abanicos de techos y tubería de aire instaladas excelentes acabados ideal para parejas OJO APTO 101 PRIMER PISO VALOR $ 550.000 TEL 3015717622-3007256161",
-      "folder": "barrio corinto, consta de 2 habitaciones"
+      "folder": "barrio-corinto-consta-de-2-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Edén Cerete",
-      "path": "assets/img/VIVIENDAS/barrio el edén cerete/index.html",
+      "title": "Barrio-el-edn-cerete",
+      "path": "assets/img/VIVIENDAS/barrio-el-edn-cerete/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-edn-cerete",
         "edén",
         "cerete",
         "cordoba",
@@ -278,45 +251,43 @@
       "status": "arriendo",
       "price": null,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el edén cerete cordoba consta de 3 habitaciones  sala comedor cocina 1 solo baño 1 solo closet patio mediano buenos acabados y buena ubicación VALOR: 650.000 TEL 3015717622-3007256161",
-      "folder": "barrio el edén cerete"
+      "folder": "barrio-el-edn-cerete"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Edén Consta De 3 Habitacione",
-      "path": "assets/img/VIVIENDAS/barrio el edén consta de 3 habitacione/index.html",
+      "title": "Barrio-el-edn-consta-de-3-habitacione",
+      "path": "assets/img/VIVIENDAS/barrio-el-edn-consta-de-3-habitacione/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-edn-consta-de-3-habitacione",
         "edén",
-        "consta",
-        "habitacione"
+        "consta"
       ],
       "status": "arriendo",
       "price": 750000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio el edén consta de 3 habitaciones  2 con closeth 2 baños abanicos de techo en sala y habitaciones garaje eléctrico  cocina zona de labores buenos acabados VALOR $750.000 TEL 3015717622-3007256161",
-      "folder": "barrio el edén consta de 3 habitacione"
+      "folder": "barrio-el-edn-consta-de-3-habitacione"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Edén Cuenta Con 2 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio el edén cuenta con 2 habitaciones/index.html",
+      "title": "Barrio-el-edn-cuenta-con-2-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-el-edn-cuenta-con-2-habitaciones/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-edn-cuenta-con-2-habitaciones",
         "edén",
         "cuenta",
-        "con",
-        "habitaciones"
+        "con"
       ],
       "status": "arriendo",
       "price": null,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el edén cuenta con 2 habitaciones  un solo baño 1solo closeth sala comedor cocina buenos acabados patio pequeño CALOR$ 500.000 TEL 3015717622-3007256161",
-      "folder": "barrio el edén cuenta con 2 habitaciones"
+      "folder": "barrio-el-edn-cuenta-con-2-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Noval Frente A La Calle De Ferromateriales Garces",
-      "path": "assets/img/VIVIENDAS/barrio el noval frente a la calle de ferromateriales garces/index.html",
+      "title": "Barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces",
+      "path": "assets/img/VIVIENDAS/barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces",
         "noval",
         "frente",
         "calle",
@@ -326,42 +297,42 @@
       "status": "arriendo",
       "price": null,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el noval frente a la calle de ferromateriales garces, cuenta con 2 habitaciones 1 solo closeth y un solo baño, garaje, cocina integral, patio amplio, buenos acabados TEL 3015717622-3007256161 VALOR: 900.000",
-      "folder": "barrio el noval frente a la calle de ferromateriales garces"
+      "folder": "barrio-el-noval-frente-a-la-calle-de-ferromateriales-garces"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Pardo Consta De 3",
-      "path": "assets/img/VIVIENDAS/barrio el pardo consta de 3/index.html",
+      "title": "Barrio-el-pardo-consta-de-3",
+      "path": "assets/img/VIVIENDAS/barrio-el-pardo-consta-de-3/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-pardo-consta-de-3",
         "pardo",
         "consta"
       ],
       "status": "arriendo",
       "price": 900000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el pardo consta de 3 habitaciones todas con closeth, 2 baños, sala - comedor, cocina, cuenta con garaje, patio amplio y  tanque elevado, acabados buenos punto de referencia cerca del CAMU EL PRADO VALOR $900.000 TEL 3015717622-3007256161",
-      "folder": "barrio el pardo consta de 3"
+      "folder": "barrio-el-pardo-consta-de-3"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Prado",
-      "path": "assets/img/VIVIENDAS/barrio el prado/index.html",
+      "title": "Barrio-el-prado",
+      "path": "assets/img/VIVIENDAS/barrio-el-prado/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-prado",
         "prado",
         "consta"
       ],
       "status": "arriendo",
       "price": 750000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el prado consta de 5 habitaciones sala y comedor independientes, dos baños remodelados patio amplio y kiosco 2 habitaciones con closeth ideal para familias numerosas o que comparten gastos  VALOR  $750.000 TEL 3015717622-3007256161",
-      "folder": "barrio el prado"
+      "folder": "barrio-el-prado"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Prado Al Frente De La Salida De Colegio De Los Niños",
-      "path": "assets/img/VIVIENDAS/barrio el prado al frente de la salida de colegio de los niños/index.html",
+      "title": "Barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios",
+      "path": "assets/img/VIVIENDAS/barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios",
         "prado",
         "frente",
         "salida",
@@ -372,30 +343,29 @@
       "status": "arriendo",
       "price": 6000000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el prado al frente de la salida de colegio de los niños; consta de 2 habitaciones  en el segundo  piso dos closeth, un baño sala coedor cocina, buenos acabados VALOR $ 600.0000 TEL 3015717622-3007256161",
-      "folder": "barrio el prado al frente de la salida de colegio de los niños"
+      "folder": "barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Prado Cuenta Con 3 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio el prado cuenta con 3 habitaciones/index.html",
+      "title": "Barrio-el-prado-cuenta-con-3-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-el-prado-cuenta-con-3-habitaciones/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-prado-cuenta-con-3-habitaciones",
         "prado",
         "cuenta",
-        "con",
-        "habitaciones"
+        "con"
       ],
       "status": "arriendo",
       "price": null,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el prado cuenta con 3 habitaciones  y tres closeth, dos baños cocina sala comedor buenos acabados, OJO SEGUNDO PISO cuenta con garaje para moto en el primer piso VALOR:  $ 750.000 TEL 3015717622-3007256161",
-      "folder": "barrio el prado cuenta con 3 habitaciones"
+      "folder": "barrio-el-prado-cuenta-con-3-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio El Prado De Cereté",
-      "path": "assets/img/VIVIENDAS/barrio el prado de cereté/index.html",
+      "title": "Barrio-el-prado-de-ceret",
+      "path": "assets/img/VIVIENDAS/barrio-el-prado-de-ceret/index.html",
       "keywords": [
-        "barrio",
+        "barrio-el-prado-de-ceret",
         "prado",
         "cereté",
         "consta",
@@ -414,59 +384,57 @@
       "status": "arriendo",
       "price": 800000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el prado de cereté consta de tres habitaciones  dos con closeth sala comedor cocina patio amplio dos baños patio con kiosco VALOR $ 800.000 TEL 3015717622-3007256161",
-      "folder": "barrio el prado de cereté"
+      "folder": "barrio-el-prado-de-ceret"
     },
     {
       "category": "viviendas",
-      "title": "Barrio La Gloria Consta De 3 Habitacione",
-      "path": "assets/img/VIVIENDAS/barrio la gloria consta de 3 habitacione/index.html",
+      "title": "Barrio-la-gloria-consta-de-3-habitacione",
+      "path": "assets/img/VIVIENDAS/barrio-la-gloria-consta-de-3-habitacione/index.html",
       "keywords": [
-        "barrio",
+        "barrio-la-gloria-consta-de-3-habitacione",
         "gloria",
-        "consta",
-        "habitacione"
+        "consta"
       ],
       "status": "arriendo",
       "price": 750000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio la gloria consta de 3 habitaciones  con closeth todas sala comedor cocina 2 baños buenos acabados patio interno garaje VALOR $750.000 TEL 3015717622-3007256161",
-      "folder": "barrio la gloria consta de 3 habitacione"
+      "folder": "barrio-la-gloria-consta-de-3-habitacione"
     },
     {
       "category": "viviendas",
-      "title": "Barrio San Diego",
-      "path": "assets/img/VIVIENDAS/barrio San diego/index.html",
+      "title": "Barrio-san-diego",
+      "path": "assets/img/VIVIENDAS/barrio-san-diego/index.html",
       "keywords": [
-        "barrio",
+        "barrio-san-diego",
         "san",
         "diego"
       ],
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio San diego, consta de 3 habitaciones  con la del servicio, dos closeth, sala y comedor independientes garaje cocina en buenas condiciones zona de labores bajo techo buenos acabados VALOR $700.000 TEL 3015717622-3007256161",
-      "folder": "barrio San diego"
+      "folder": "barrio-san-diego"
     },
     {
       "category": "viviendas",
-      "title": "Barrio San Diego Consta De 3 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio San diego consta de 3 habitaciones/index.html",
+      "title": "Barrio-san-diego-consta-de-3-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-san-diego-consta-de-3-habitaciones/index.html",
       "keywords": [
-        "barrio",
+        "barrio-san-diego-consta-de-3-habitaciones",
         "san",
         "diego",
-        "consta",
-        "habitaciones"
+        "consta"
       ],
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en barrio San diego consta de 3 habitaciones  incluyendo la del servicio  dos closeth sala comedor cocina, dos baños patio pequeño buenos acabados y zona de labores VALOR $700.000 TEL 3015717622-3007256161",
-      "folder": "barrio San diego consta de 3 habitaciones"
+      "folder": "barrio-san-diego-consta-de-3-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio San Nicolas En Toda La Calle Del Cementerio",
-      "path": "assets/img/VIVIENDAS/barrio San Nicolas en toda la calle del cementerio/index.html",
+      "title": "Barrio-san-nicolas-en-toda-la-calle-del-cementerio",
+      "path": "assets/img/VIVIENDAS/barrio-san-nicolas-en-toda-la-calle-del-cementerio/index.html",
       "keywords": [
-        "barrio",
+        "barrio-san-nicolas-en-toda-la-calle-del-cementerio",
         "san",
         "nicolas",
         "toda",
@@ -477,14 +445,14 @@
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio San Nicolas en toda la calle del cementerio, consta de 3 habitaciones, tres closeth, 2 baños, sala comedor, cocina terminada con gabeteros balcón y zona de labores, buenos acabados OJO 2DO PISO VALOR $600.000 TEL 3015717622-3007256161",
-      "folder": "barrio San Nicolas en toda la calle del cementerio"
+      "folder": "barrio-san-nicolas-en-toda-la-calle-del-cementerio"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Santa Clara",
-      "path": "assets/img/VIVIENDAS/barrio santa clara/index.html",
+      "title": "Barrio-santa-clara",
+      "path": "assets/img/VIVIENDAS/barrio-santa-clara/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-clara",
         "santa",
         "clara",
         "consta"
@@ -492,32 +460,45 @@
       "status": "arriendo",
       "price": 1000000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio santa clara consta de 3 habitaciones todas con closet sala, comedor, cocina, 2 baños kiosco, buenos acabados, zona central VALOR $ 1.000.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa clara"
+      "folder": "barrio-santa-clara"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Santa Clara Consta De 3 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio santa clara consta de 3 habitaciones/index.html",
+      "title": "Barrio-santa-clara-cerca-del-parque",
+      "path": "assets/img/VIVIENDAS/barrio-santa-clara-cerca-del-parque/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-clara-cerca-del-parque",
+        "santa",
+        "clara"
+      ],
+      "status": "arriendo",
+      "price": 700000,
+      "info": "SE ARRIENDA  LOCAL COMERCIAL : Esta ubicado  en el barrio santa clara, cerca del parque consta de 4 metros de frente, por 8 metros de fondo, aproximadamente, tiene baño interno servicio  de de luz agua y gas buenos acabado y excelente  punto estratégico VALOR $700.000 TEL 3015717622-3007256161",
+      "folder": "barrio-santa-clara-cerca-del-parque"
+    },
+    {
+      "category": "viviendas",
+      "title": "Barrio-santa-clara-consta-de-3-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-santa-clara-consta-de-3-habitaciones/index.html",
+      "keywords": [
+        "barrio-santa-clara-consta-de-3-habitaciones",
         "santa",
         "clara",
         "consta",
-        "habitaciones",
         "cancha",
         "valor"
       ],
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio santa clara consta de 3 habitaciones sala comedor cocina tres closeth 1 solo baño patio amplio esta frente a la cancha santa clara VALOR $700.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa clara consta de 3 habitaciones"
+      "folder": "barrio-santa-clara-consta-de-3-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Santa Clara Frente A Frutitodo",
-      "path": "assets/img/VIVIENDAS/barrio santa clara frente a frutitodo/index.html",
+      "title": "Barrio-santa-clara-frente-a-frutitodo",
+      "path": "assets/img/VIVIENDAS/barrio-santa-clara-frente-a-frutitodo/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-clara-frente-a-frutitodo",
         "santa",
         "clara",
         "frente",
@@ -528,109 +509,83 @@
       "status": "arriendo",
       "price": 650000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio santa clara frente a frutitodo cuenta con 3 habitaciones, 2 con closeth sala comedor cocina buena ubicación central, 2 baños, zona de labores mediana VALOR $ 650.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa clara frente a frutitodo"
+      "folder": "barrio-santa-clara-frente-a-frutitodo"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Santa Clara, Cerca Del Parque",
-      "path": "assets/img/VIVIENDAS/barrio santa clara, cerca del parque/index.html",
+      "title": "Barrio-santa-paula-consta-de-2-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-santa-paula-consta-de-2-habitaciones/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-paula-consta-de-2-habitaciones",
         "santa",
-        "clara,",
-        "cerca",
-        "del",
-        "parque",
-        "clara"
-      ],
-      "status": "arriendo",
-      "price": 700000,
-      "info": "SE ARRIENDA  LOCAL COMERCIAL : Esta ubicado  en el barrio santa clara, cerca del parque consta de 4 metros de frente, por 8 metros de fondo, aproximadamente, tiene baño interno servicio  de de luz agua y gas buenos acabado y excelente  punto estratégico VALOR $700.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa clara, cerca del parque"
-    },
-    {
-      "category": "viviendas",
-      "title": "Barrio Santa Paula, Consta De 2 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio santa paula, consta de 2 habitaciones/index.html",
-      "keywords": [
-        "barrio",
-        "santa",
-        "paula,",
-        "consta",
-        "habitaciones",
         "paula"
       ],
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio santa paula, consta de 2 habitaciones sala comedor cocina, un solo baño, zona de labores patio mediano VALOR $ 600.000 TEL 3015717622-3007256161",
-      "folder": "barrio santa paula, consta de 2 habitaciones"
+      "folder": "barrio-santa-paula-consta-de-2-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Santa Teresa Consta 3 Habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio santa teresa consta 3 habitaciones/index.html",
+      "title": "Barrio-santa-teresa-consta-3-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-santa-teresa-consta-3-habitaciones/index.html",
       "keywords": [
-        "barrio",
+        "barrio-santa-teresa-consta-3-habitaciones",
         "santa",
         "teresa",
-        "consta",
-        "habitaciones"
+        "consta"
       ],
       "status": "arriendo",
       "price": 650000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio santa teresa consta 3 habitaciones  sala comedor cocina, garaje, tiene 2 baños internos  patio amplio y  buena ubicación TEL 3015717622-3007256161  VALOR $650.000",
-      "folder": "barrio santa teresa consta 3 habitaciones"
+      "folder": "barrio-santa-teresa-consta-3-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Venus",
-      "path": "assets/img/VIVIENDAS/barrio venus/index.html",
+      "title": "Barrio-venus",
+      "path": "assets/img/VIVIENDAS/barrio-venus/index.html",
       "keywords": [
-        "barrio",
+        "barrio-venus",
         "venus",
         "consta"
       ],
       "status": "arriendo",
       "price": 600000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio venus consta de 2 habitaciones un baño sala comedor cocina zona de labores VALOR $600.000 TEL 3015717622-3007256161",
-      "folder": "barrio venus"
+      "folder": "barrio-venus"
     },
     {
       "category": "viviendas",
-      "title": "Barrio Venus Cereté",
-      "path": "assets/img/VIVIENDAS/barrio venus cereté/index.html",
+      "title": "Barrio-venus-ceret",
+      "path": "assets/img/VIVIENDAS/barrio-venus-ceret/index.html",
       "keywords": [
-        "barrio",
+        "barrio-venus-ceret",
         "venus",
         "cereté"
       ],
       "status": "arriendo",
       "price": 1500000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio venus cereté- córdoba consta de 4 habitaciones  2 con closeth  sala comedor cocina tres baños recién remodelada buenos acabados y garaje Tel 3015717622-3007256161 VALOR $ 1.500.000",
-      "folder": "barrio venus cereté"
+      "folder": "barrio-venus-ceret"
     },
     {
       "category": "viviendas",
-      "title": "Calle 23 De La Gloria Cuenta Con 4 Habitaciones",
-      "path": "assets/img/VIVIENDAS/calle 23 de la gloria cuenta con 4 habitaciones/index.html",
+      "title": "Calle-23-de-la-gloria-cuenta-con-4-habitaciones",
+      "path": "assets/img/VIVIENDAS/calle-23-de-la-gloria-cuenta-con-4-habitaciones/index.html",
       "keywords": [
-        "calle",
-        "gloria",
-        "cuenta",
-        "con",
-        "habitaciones"
+        "calle-23-de-la-gloria-cuenta-con-4-habitaciones"
       ],
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en la calle 23 de la gloria cuenta con 4 habitaciones  dos baños sala comedor cocina patio amplio VALOR $700.000 TEL 3015717622-3007256161",
-      "folder": "calle 23 de la gloria cuenta con 4 habitaciones"
+      "folder": "calle-23-de-la-gloria-cuenta-con-4-habitaciones"
     },
     {
       "category": "viviendas",
-      "title": "Calle Cartagenita Cerca De Billares El Hipico",
-      "path": "assets/img/VIVIENDAS/calle cartagenita cerca de billares el hipico/index.html",
+      "title": "Calle-cartagenita-cerca-de-billares-el-hipico",
+      "path": "assets/img/VIVIENDAS/calle-cartagenita-cerca-de-billares-el-hipico/index.html",
       "keywords": [
-        "calle",
+        "calle-cartagenita-cerca-de-billares-el-hipico",
         "cartagenita",
         "cerca",
         "billares",
@@ -646,14 +601,14 @@
       "status": "arriendo",
       "price": 550000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en la calle cartagenita cerca de billares el hipico detrás de la panadería de emiliano TERCER PISO Y PRIMER PISO  APTO 301 Y 102 cuenta con 2 habitaciones sala comedor cocina buenos acabados estufa integral ideal 1 baño closeth en ambas habitaciones VALOR $550.000 CADA APTO TEL 3015717622-3007256161",
-      "folder": "calle cartagenita cerca de billares el hipico"
+      "folder": "calle-cartagenita-cerca-de-billares-el-hipico"
     },
     {
       "category": "viviendas",
-      "title": "Calle Cartagenita Cerca Del Marceliano Polo",
-      "path": "assets/img/VIVIENDAS/calle cartagenita cerca del marceliano polo/index.html",
+      "title": "Calle-cartagenita-cerca-del-marceliano-polo",
+      "path": "assets/img/VIVIENDAS/calle-cartagenita-cerca-del-marceliano-polo/index.html",
       "keywords": [
-        "calle",
+        "calle-cartagenita-cerca-del-marceliano-polo",
         "cartagenita",
         "cerca",
         "del",
@@ -665,14 +620,14 @@
       "status": "arriendo",
       "price": 850000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en la calle cartagenita cerca del marceliano polo cuenta con 3 habitaciones todas con closeth sala comedor cocina patio con kiosco, garaje amplio y 4 baños VALOR$ 850.000 TEL 3015717622-3007256161",
-      "folder": "calle cartagenita cerca del marceliano polo"
+      "folder": "calle-cartagenita-cerca-del-marceliano-polo"
     },
     {
       "category": "viviendas",
-      "title": "Calle Cartagenita En Todo Los Semáforos",
-      "path": "assets/img/VIVIENDAS/calle cartagenita en todo los semáforos/index.html",
+      "title": "Calle-cartagenita-en-todo-los-semforos",
+      "path": "assets/img/VIVIENDAS/calle-cartagenita-en-todo-los-semforos/index.html",
       "keywords": [
-        "calle",
+        "calle-cartagenita-en-todo-los-semforos",
         "cartagenita",
         "todo",
         "los",
@@ -682,14 +637,14 @@
       "status": "arriendo",
       "price": 900000,
       "info": "SE ARRIENDA LOCAL COMERCIAL: Esta ubicado en la calle cartagenita en todo los semáforos consta de 7 metros de frente por 8 metros de fondo esquina alta zona de tráfico buena ubicación buenos acabados VALOR $900.000 TEL 3015717622-3007256161",
-      "folder": "calle cartagenita en todo los semáforos"
+      "folder": "calle-cartagenita-en-todo-los-semforos"
     },
     {
       "category": "viviendas",
-      "title": "Calle Principal Del Cañito",
-      "path": "assets/img/VIVIENDAS/calle principal  del cañito/index.html",
+      "title": "Calle-principal-del-caito",
+      "path": "assets/img/VIVIENDAS/calle-principal-del-caito/index.html",
       "keywords": [
-        "calle",
+        "calle-principal-del-caito",
         "principal",
         "del",
         "cañito",
@@ -698,21 +653,15 @@
       "status": "arriendo",
       "price": 700000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en la calle principal  del cañito a escasos 50 metros de la pavimentada cuenta con 3 habitaciones  2 baños sala comedor cocina buenos acabados patio amplio buena estratificacion en servicios públicos VALOR $ 700.000 TEL 3015717622-3007256161",
-      "folder": "calle principal  del cañito"
+      "folder": "calle-principal-del-caito"
     },
     {
       "category": "viviendas",
-      "title": "Edificio Que Está En Los Semáforos Del Granero Jaramillo",
-      "path": "assets/img/VIVIENDAS/edificio que está en los semáforos del granero jaramillo/index.html",
+      "title": "Edificio-que-est-en-los-semforos-del-granero-jaramillo",
+      "path": "assets/img/VIVIENDAS/edificio-que-est-en-los-semforos-del-granero-jaramillo/index.html",
       "keywords": [
-        "edificio",
-        "que",
-        "está",
+        "edificio-que-est-en-los-semforos-del-granero-jaramillo",
         "los",
-        "semáforos",
-        "del",
-        "granero",
-        "jaramillo",
         "juzgado",
         "zona",
         "céntrica",
@@ -721,43 +670,38 @@
       "status": "arriendo",
       "price": 10000000,
       "info": "ARRIENDO VIVIENDA URBANA: Esta ubicada en el edificio que está en los semáforos del granero jaramillo en cerete, cerca de los juzgado y zona céntrica de cerete, consta de 3 habitaciones todas con closeth  dos baños sala comedor cocina zona de labores y patio interno cocina integral  OJO 2 Y 4 PISO aptos con similitudes características PARQUEADERO SOLO MOTOS  VALOR $ 1.000.0000 TEL 3015717622-3007256161",
-      "folder": "edificio que está en los semáforos del granero jaramillo"
+      "folder": "edificio-que-est-en-los-semforos-del-granero-jaramillo"
     },
     {
       "category": "viviendas",
-      "title": "Garzones Monteria",
-      "path": "assets/img/VIVIENDAS/garzones monteria/index.html",
+      "title": "Garzones-monteria",
+      "path": "assets/img/VIVIENDAS/garzones-monteria/index.html",
       "keywords": [
-        "garzones",
-        "monteria"
+        "garzones-monteria"
       ],
       "status": "arriendo",
       "price": 600000,
       "info": "ARRIENDO VIVIENDA URBANA: Esta ubicada en garzones monteria consta de 2 habitaciones una de ellas con closeth sala, comedor, cocina, patio amplio y zona de labores dos baños, buenos acabados VALOR $600.000 TEL 3015717622-3007256161",
-      "folder": "garzones monteria"
+      "folder": "garzones-monteria"
     },
     {
       "category": "viviendas",
-      "title": "Orilla Del Rio Centro",
-      "path": "assets/img/VIVIENDAS/orilla del rio centro/index.html",
+      "title": "Orilla-del-rio-centro",
+      "path": "assets/img/VIVIENDAS/orilla-del-rio-centro/index.html",
       "keywords": [
-        "orilla",
-        "del",
-        "rio",
-        "centro"
+        "orilla-del-rio-centro"
       ],
       "status": "arriendo",
       "price": 300000,
       "info": "SE ARRIENDA VIVIENDA O LOCAL COMERCIAL: Esta ubicada en la orilla del rio centro, cuenta con 3 metros de frente y 7 metros de fondo baño interno buenos acabados queda al lado de casa de eventos MOHAMED VALOR $300.000 TEL 3015717622-3007256161",
-      "folder": "orilla del rio centro"
+      "folder": "orilla-del-rio-centro"
     },
     {
       "category": "viviendas",
-      "title": "Pelayo Cerca De La Bomba Entrada Principal",
-      "path": "assets/img/VIVIENDAS/PELAYO  cerca de la bomba entrada principal/index.html",
+      "title": "Pelayo-cerca-de-la-bomba-entrada-principal",
+      "path": "assets/img/VIVIENDAS/pelayo-cerca-de-la-bomba-entrada-principal/index.html",
       "keywords": [
-        "pelayo",
-        "cerca",
+        "pelayo-cerca-de-la-bomba-entrada-principal",
         "bomba",
         "entrada",
         "principal",
@@ -766,21 +710,19 @@
       "status": "arriendo",
       "price": 10000000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en PELAYO  cerca de la bomba entrada principal consta de 3 habitaciones  con closeth, sala comedor cocina tres baños, garaje eléctrico buenos acabados TEL 3015717622-3007256161 VALOR $ 1.000.0000",
-      "folder": "PELAYO  cerca de la bomba entrada principal"
+      "folder": "pelayo-cerca-de-la-bomba-entrada-principal"
     },
     {
       "category": "viviendas",
-      "title": "Retiro De Los Indios",
-      "path": "assets/img/VIVIENDAS/retiro de los indios/index.html",
+      "title": "Retiro-de-los-indios",
+      "path": "assets/img/VIVIENDAS/retiro-de-los-indios/index.html",
       "keywords": [
-        "retiro",
-        "los",
-        "indios"
+        "retiro-de-los-indios"
       ],
       "status": "arriendo",
       "price": 800000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en retiro de los indios consta de 4 habitaciones 2 baños, sala, comedor cocina patio amplio, casa antigua espaciosa closeth en dos cuartos VALOR $800.000 TEL 3015717622-3007256161",
-      "folder": "retiro de los indios"
+      "folder": "retiro-de-los-indios"
     }
   ]
 }
