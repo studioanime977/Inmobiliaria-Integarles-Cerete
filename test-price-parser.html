@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Parseador de Precios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1e40af;
+            margin-bottom: 30px;
+        }
+        .test-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #e0e7ff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .test-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .test-btn:hover {
+            background: #2563eb;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+        }
+        .result.success {
+            background: #f0fdf4;
+            border-left-color: #22c55e;
+        }
+        .result.error {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+        .examples {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fef3c7;
+            border-radius: 8px;
+        }
+        .examples h3 {
+            margin-top: 0;
+            color: #92400e;
+        }
+        .examples ul {
+            list-style: none;
+            padding: 0;
+        }
+        .examples li {
+            padding: 8px 0;
+            border-bottom: 1px solid #fde68a;
+        }
+        .examples li:last-child {
+            border-bottom: none;
+        }
+        .example-btn {
+            background: #fbbf24;
+            color: #78350f;
+            padding: 4px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .example-btn:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Prueba del Parseador de Precios</h1>
+        <p>Ingresa diferentes formatos de precio para probar el parseador:</p>
+        
+        <input type="text" class="test-input" id="priceInput" placeholder="Ej: 500k-800k, desde 600 mil, $500.000 - $800.000">
+        <button class="test-btn" onclick="testPrice()">Probar Precio</button>
+        
+        <div id="result"></div>
+        
+        <div class="examples">
+            <h3>📋 Ejemplos para probar:</h3>
+            <ul>
+                <li><strong>500k-800k</strong> <button class="example-btn" onclick="testExample('500k-800k')">Probar</button></li>
+                <li><strong>500 mil a 800 mil</strong> <button class="example-btn" onclick="testExample('500 mil a 800 mil')">Probar</button></li>
+                <li><strong>$500.000 - $800.000</strong> <button class="example-btn" onclick="testExample('$500.000 - $800.000')">Probar</button></li>
+                <li><strong>desde 1M</strong> <button class="example-btn" onclick="testExample('desde 1M')">Probar</button></li>
+                <li><strong>desde 1 millón</strong> <button class="example-btn" onclick="testExample('desde 1 millón')">Probar</button></li>
+                <li><strong>hasta 700k</strong> <button class="example-btn" onclick="testExample('hasta 700k')">Probar</button></li>
+                <li><strong>hasta 700 mil</strong> <button class="example-btn" onclick="testExample('hasta 700 mil')">Probar</button></li>
+                <li><strong>más de 600k</strong> <button class="example-btn" onclick="testExample('más de 600k')">Probar</button></li>
+                <li><strong>menos de 1M</strong> <button class="example-btn" onclick="testExample('menos de 1M')">Probar</button></li>
+                <li><strong>entre 500.000 y 900.000</strong> <button class="example-btn" onclick="testExample('entre 500.000 y 900.000')">Probar</button></li>
+                <li><strong>máximo 800k</strong> <button class="example-btn" onclick="testExample('máximo 800k')">Probar</button></li>
+                <li><strong>600000</strong> <button class="example-btn" onclick="testExample('600000')">Probar</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Parseador de rangos de precio (copiado de main.js)
+        function parsePriceRange(text){
+            if(!text) return null;
+            const t = text.toLowerCase().replace(/\$/g, '');
+            
+            const normalize = (s)=>{
+                if(!s) return null;
+                s = s.replace(/\s/g, '').replace(/\$/g, '');
+                
+                if(/mil(es|lones|lon)?/.test(s)){
+                    const numMatch = s.match(/([0-9]+(?:[\.,][0-9]+)?)/);
+                    if(numMatch){
+                        let num = parseFloat(numMatch[1].replace(',','.'));
+                        if(/millon(es)?/.test(s)) num = num * 1000000;
+                        else if(/mil/.test(s)) num = num * 1000;
+                        return Math.round(num);
+                    }
+                }
+                
+                const dotCount = (s.match(/\./g) || []).length;
+                if(dotCount >= 1 && !s.includes(',')){
+                    s = s.replace(/\./g, '');
+                }
+                
+                const m = s.match(/([0-9]+(?:[\.,][0-9]+)?)(m|k)?/i);
+                if(!m) return null;
+                let num = parseFloat(m[1].replace(',','.'));
+                const unit = (m[2]||'').toLowerCase();
+                if(unit==='m') num = num * 1000000;
+                else if(unit==='k') num = num * 1000;
+                return Math.round(num);
+            };
+            
+            let mm = t.match(/(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)\s*[-–a]\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: normalize(mm[1]), max: normalize(mm[2]) }; }
+            
+            mm = t.match(/desde\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: normalize(mm[1]), max: null }; }
+            
+            mm = t.match(/(?:hasta|m[aá]ximo?)\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: null, max: normalize(mm[1]) }; }
+            
+            mm = t.match(/(?:m[aá]s\s*de|mayor\s*(?:a|que))\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: normalize(mm[1]), max: null }; }
+            
+            mm = t.match(/(?:menos\s*de|menor\s*(?:a|que))\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: null, max: normalize(mm[1]) }; }
+            
+            mm = t.match(/entre\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)\s*y\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ return { min: normalize(mm[1]), max: normalize(mm[2]) }; }
+            
+            mm = t.match(/(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
+            if(mm){ 
+                const v = normalize(mm[1]); 
+                const margin = Math.round(v * 0.15);
+                return { min: v - margin, max: v + margin }; 
+            }
+            
+            return null;
+        }
+
+        function formatPrice(price) {
+            return price ? `$${price.toLocaleString('es-CO')}` : 'N/A';
+        }
+
+        function testPrice() {
+            const input = document.getElementById('priceInput').value;
+            const result = parsePriceRange(input);
+            const resultDiv = document.getElementById('result');
+            
+            if (result) {
+                let html = '<div class="result success">';
+                html += '<h3>✅ Resultado del Parseador:</h3>';
+                html += `<p><strong>Texto ingresado:</strong> "${input}"</p>`;
+                
+                if (result.min && result.max) {
+                    html += `<p><strong>Rango:</strong> ${formatPrice(result.min)} - ${formatPrice(result.max)}</p>`;
+                } else if (result.min) {
+                    html += `<p><strong>Desde:</strong> ${formatPrice(result.min)}</p>`;
+                } else if (result.max) {
+                    html += `<p><strong>Hasta:</strong> ${formatPrice(result.max)}</p>`;
+                }
+                
+                html += `<p><strong>Valores numéricos:</strong></p>`;
+                html += `<ul>`;
+                if (result.min) html += `<li>Mínimo: ${result.min}</li>`;
+                if (result.max) html += `<li>Máximo: ${result.max}</li>`;
+                html += `</ul>`;
+                html += '</div>';
+                
+                resultDiv.innerHTML = html;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ No se pudo parsear</h3>
+                        <p>El texto "${input}" no fue reconocido como un formato de precio válido.</p>
+                        <p>Intenta con uno de los ejemplos de abajo.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function testExample(example) {
+            document.getElementById('priceInput').value = example;
+            testPrice();
+        }
+
+        // Permitir Enter para probar
+        document.getElementById('priceInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                testPrice();
+            }
+        });
+    </script>
+</body>
+</html>

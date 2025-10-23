@@ -307,7 +307,11 @@
     object-position: 50% 85%;
   }
   .hero-content {
-    top: 20%;
+    top: 34%;
+  }
+  .hero-content .btn {
+    padding: 14px 36px;
+    font-size: 1.08rem;
   }
   .search-bar {
     bottom: 40px;
@@ -323,7 +327,11 @@
     object-position: 50% 90%;
   }
   .hero-content {
-    top: 18%;
+    top: 30%;
+  }
+  .hero-content .btn {
+    padding: 13px 32px;
+    font-size: 1.02rem;
   }
   .search-bar {
     bottom: 35px;
