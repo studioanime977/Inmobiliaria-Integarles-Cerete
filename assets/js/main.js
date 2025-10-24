@@ -1186,7 +1186,7 @@
       priceText = `\n💰 Precio: $${price.toLocaleString('es-CO')}`;
     }
 
-    // Construir mensaje profesional
+    // Construir mensaje profesional para contactar a la inmobiliaria
     const message = `¡Hola! 👋
 
 Me interesa esta propiedad que vi en su página web:
@@ -1200,6 +1200,31 @@ ${url}
 ¿Podrían darme más información sobre disponibilidad y condiciones de arriendo?
 
 ¡Gracias!`;
+
+    return message;
+  }
+
+  // Mensaje de recomendación para compartir entre personas (no contacto directo)
+  function buildRecommendationText(title, category, path, info, price){
+    const kind = category === 'locales' ? 'local comercial' : 'vivienda';
+    const url = buildAbsUrl(path);
+
+    let priceText = '';
+    if(price && typeof price === 'number'){
+      priceText = `\n💰 Precio: $${price.toLocaleString('es-CO')}`;
+    }
+    const infoText = info ? `\n📝 ${info.substring(0, 180)}${info.length > 180 ? '...' : ''}` : '';
+
+    const message = `¡Hola! 👋
+
+Te comparto esta ${kind} que encontré y creo que te puede interesar:
+
+🏠 *${title}*${priceText}${infoText}
+
+🔗 Ver detalles:
+${url}
+
+Si te interesa, dime y te paso el contacto.`;
 
     return message;
   }
@@ -1244,6 +1269,119 @@ ${url}
     // Abrir WhatsApp con el mensaje pre-cargado
     window.open(whatsappUrl, '_blank');
   });
+
+  // ==============================
+  // WhatsApp en páginas de propiedad (assets/img/*/index.html)
+  // ==============================
+  function extractPriceFromPropertyPage(){
+    const priceEl = document.querySelector('.property-info-details p');
+    let text = '';
+    if(priceEl){ text = priceEl.textContent || priceEl.innerText || ''; }
+    // Buscar línea que contenga "Valor:" específicamente dentro del bloque de info
+    const allP = Array.from(document.querySelectorAll('.property-info-details p'));
+    const valP = allP.find(p => /valor\s*:/i.test(p.textContent||''));
+    if(valP) text = valP.textContent || valP.innerText || text;
+    const m = (text||'').match(/\$?\s*([\d\.\,]+)/);
+    if(!m) return null;
+    // Normalizar 600.000 => 600000
+    const normalized = m[1].replace(/\./g,'').replace(/\,/g,'.');
+    const num = parseFloat(normalized);
+    return isNaN(num) ? null : Math.round(num);
+  }
+
+  function extractInfoFromPropertyPage(){
+    const p = Array.from(document.querySelectorAll('.property-info-details p'))
+      .find(el => /descripci[oó]n\s*:/i.test(el.textContent||''));
+    if(!p) return '';
+    const txt = (p.textContent || '').replace(/\s+/g,' ').trim();
+    return txt.replace(/^\s*descripci[oó]n\s*:\s*/i,'');
+  }
+
+  function detectCategoryFromPath(){
+    const path = (window.location.pathname||'').toLowerCase();
+    if(path.includes('/viviendas/')) return 'viviendas';
+    if(path.includes('/locales/')) return 'locales';
+    return 'viviendas';
+  }
+
+  function wirePropertyWhatsApp(){
+    const btn = document.querySelector('.property-info-details .btn.btn-primary');
+    if(!btn) return;
+    // Obtener datos de la página
+    const title = (document.querySelector('.section-header .section-title')?.textContent || document.title || '').trim();
+    const info = extractInfoFromPropertyPage();
+    const price = extractPriceFromPropertyPage();
+    const category = detectCategoryFromPath();
+    const currentUrl = window.location.href;
+    const message = buildRecommendationText(title, category, currentUrl, info, price);
+    const encoded = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/573015717622?text=${encoded}`;
+
+    // Reescribir el href y manejar el click
+    btn.setAttribute('href', whatsappUrl);
+    btn.setAttribute('target', '_blank');
+    btn.addEventListener('click', async (e)=>{
+      e.preventDefault();
+      try { await navigator.clipboard.writeText(message); } catch(_e) {}
+      window.open(whatsappUrl, '_blank');
+    }, { once: true });
+  }
+
+  // Compartir a cualquier número en páginas de propiedad
+  function wirePropertyShareToAny(){
+    const container = document.querySelector('.property-info-details');
+    if(!container) return;
+    // Crear UI: input + botón
+    const wrap = document.createElement('div');
+    wrap.style.display = 'flex';
+    wrap.style.gap = '8px';
+    wrap.style.marginTop = '8px';
+    const input = document.createElement('input');
+    input.type = 'tel';
+    input.placeholder = 'Número WhatsApp (ej. 3015717622)';
+    input.className = 'wa-number-input';
+    input.style.flex = '1';
+    input.style.padding = '8px';
+    input.style.border = '1px solid #ccc';
+    input.style.borderRadius = '6px';
+    const shareBtn = document.createElement('a');
+    shareBtn.href = '#';
+    shareBtn.className = 'btn btn-outline wa-share-any';
+    shareBtn.textContent = 'Compartir por WhatsApp';
+    wrap.append(input);
+    wrap.append(shareBtn);
+    container.append(wrap);
+
+    // Datos de la página
+    const title = (document.querySelector('.section-header .section-title')?.textContent || document.title || '').trim();
+    const info = extractInfoFromPropertyPage();
+    const price = extractPriceFromPropertyPage();
+    const category = detectCategoryFromPath();
+    const currentUrl = window.location.href;
+    const message = buildWhatsAppText(title, category, currentUrl, info, price);
+
+    // Enviar al número ingresado
+    const sendTo = (rawNum)=>{
+      const digits = (rawNum||'').replace(/[^0-9]/g,'');
+      if(!digits){ alert('Ingresa un número de WhatsApp'); return; }
+      let final = digits;
+      // Normalización: si dan 10 dígitos colombianos, anteponer 57
+      if(digits.length === 10){ final = '57' + digits; }
+      else if(digits.length >= 11 && digits.startsWith('57')){ final = digits; }
+      else if(digits.length < 10){ alert('Número incompleto. Ej: 3015717622'); return; }
+
+      const encoded = encodeURIComponent(message);
+      const wa = `https://wa.me/${final}?text=${encoded}`;
+      try { navigator.clipboard.writeText(message); } catch(_) {}
+      window.open(wa, '_blank');
+    };
+
+    shareBtn.addEventListener('click', (e)=>{ e.preventDefault(); sendTo(input.value); });
+    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); sendTo(input.value); } });
+  }
+
+  // Inicializar en páginas de propiedad
+  try { wirePropertyWhatsApp(); wirePropertyShareToAny(); } catch(_e) {}
 
   function replyContact(){
     const wa = 'https://wa.me/qr/6WQZ2EFOAR46O1';
