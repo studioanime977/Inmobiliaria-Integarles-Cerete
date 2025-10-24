@@ -830,7 +830,15 @@
               .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
               .then(idx => {
                 const items = (idx.items || []).filter(it => it && it.folder);
-                // Mantener orden; opcionalmente se podría limitar a N items
+                // Ordenar: primero las disponibles (sin etiqueta ARRENDADA)
+                items.sort((a,b) => {
+                  const aKey = (a.title || a.folder || '').toLowerCase();
+                  const bKey = (b.title || b.folder || '').toLowerCase();
+                  const aAvail = AVAILABLE_TITLES.has(aKey);
+                  const bAvail = AVAILABLE_TITLES.has(bKey);
+                  if (aAvail === bAvail) return 0;
+                  return aAvail ? -1 : 1; // disponibles primero
+                });
                 items.forEach(it => {
                   const base = resolveBase(it);
                   // Agregar SIEMPRE la tarjeta; la imagen hace fallback automático
