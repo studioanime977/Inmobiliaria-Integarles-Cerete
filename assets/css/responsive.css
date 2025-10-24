@@ -357,3 +357,11 @@
   /* Testimonios en 1 columna en móvil */
   .testimonials-slider { grid-template-columns: 1fr; }
 }
+
+/* Desktop background on hero container */
+@media (min-width: 769px) {
+  .hero { 
+    background-image: url('../ico/fondo.jpg');
+    background-position: center bottom;
+  }
+}

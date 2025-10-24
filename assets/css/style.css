@@ -1472,3 +1472,20 @@ p {
   margin: 0;
   min-width: 140px;
 }
+
+/* Responsive hero background at container level (mobile default) */
+.hero {
+  background-image: url('../ico/fondo-para-mobil.jpg');
+  background-size: cover;
+  background-position: 50% 85%;
+}
+
+/* Ensure slide doesn't override container background */
+.hero-slide {
+  background: transparent;
+}
+
+/* Hide inline hero image; use CSS background instead */
+.hero-slide img {
+  display: none;
+}
