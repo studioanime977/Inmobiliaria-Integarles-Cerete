@@ -11,6 +11,19 @@
 (function($) {
     'use strict';
 
+    // Disponibilidad global para tarjetas y chatbot
+    window.AVAILABLE_TITLES = window.AVAILABLE_TITLES || new Set([
+      'el-corazon-de-la-avenida-santander',
+      'barrio-santa-clara',
+      'calle-cartagenita-cerca-de-billares-el-hipico',
+      'barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios',
+      'centro-cerete-ojo-segundo-piso',
+      'barrio-corinto-consta-de-2-habitaciones',
+      'barrio-el-edn-cerete',
+      'barrio-santa-teresa',
+      'barrio-venus-ceret'
+    ]);
+
     // Preloader
     $(window).on('load', function() {
         $('#preloader').fadeOut('slow', function() {
@@ -759,7 +772,7 @@
             const $grid = $('.featured-section .featured-grid');
             if ($grid.length === 0) return;
 
-            function buildCard(it, imgUrl){
+            function buildCard(it, imgUrl, fallbackUrl){
                 const type = it.category === 'locales' ? 'local' : 'vivienda';
                 const $card = $('<article/>', {
                     class: 'featured-card',
@@ -767,20 +780,29 @@
                     'data-status': (it.status || '').toLowerCase(),
                     'data-city': 'cerete'
                 });
-                // Imagen con el mismo markup y clases que el HTML estático
-                const $image = $('<div/>', { class: 'featured-image' }).append(
-                  $('<img/>', { alt: (type === 'local' ? 'Local - ' : 'Vivienda - ') + it.title }).attr('src', imgUrl)
-                );
+                // Imagen con el mismo markup y clases que el HTML estático, con fallback
+                const $img = $('<img/>', { alt: (type === 'local' ? 'Local - ' : 'Vivienda - ') + it.title })
+                  .attr('src', imgUrl)
+                  .attr('onerror', `this.onerror=null; this.src='${fallbackUrl}';`);
+                const $image = $('<div/>', { class: 'featured-image' }).append($img);
                 // Contenido minimal: título + botón
                 const $info = $('<div/>', { class: 'featured-info' });
                 // Convertir título a mayúsculas y reemplazar guiones con espacios
                 const formattedTitle = it.title
                     .replace(/-/g, ' ')  // Reemplazar guiones con espacios
                     .toUpperCase();      // Convertir a mayúsculas
+                const isAvailable = AVAILABLE_TITLES.has((it.title || it.folder || '').toLowerCase());
                 $info.append($('<h3/>').text(formattedTitle));
+                // Mostrar etiqueta ARRENDADA sobre la foto PORTADA cuando no está disponible
+                if (!isAvailable) {
+                  $image.append($('<span/>', { class: 'pill pill-arriendo', style: 'position:absolute;top:8px;left:8px;z-index:2' }).text('ARRENDADA'));
+                }
                 const href = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
-                if (href) {
+                if (href && isAvailable) {
                   $info.append($('<a/>', { class: 'btn btn-outline', href }).text('Ver detalles'));
+                } else {
+                  // Botón deshabilitado para propiedades arrendadas/no disponibles
+                  $info.append($('<button/>', { class: 'btn btn-outline', disabled: true, 'aria-disabled': 'true', type: 'button' }).text('Ver detalles'));
                 }
                 $card.append($image).append($info);
                 return $card;
@@ -801,22 +823,8 @@
                 // Mantener orden; opcionalmente se podría limitar a N items
                 items.forEach(it => {
                   const base = resolveBase(it);
-                  const indexPath = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
-                  // Verificar que exista index.html y al menos una imagen antes de añadir la tarjeta
-                  fetch(indexPath, { method: 'GET', cache: 'no-store' }).then(idxRes => {
-                    if (!idxRes || !idxRes.ok) { return; }
-                    return fetch(base.portada, { method: 'GET', cache: 'no-store' }).then(res => {
-                      if (res && res.ok) {
-                        $grid.append(buildCard(it, base.portada));
-                        return;
-                      }
-                      return fetch(base.alt, { method: 'GET', cache: 'no-store' }).then(res2 => {
-                        if (res2 && res2.ok) {
-                          $grid.append(buildCard(it, base.alt));
-                        }
-                      });
-                    });
-                  }).catch(() => { /* ignorar */ });
+                  // Agregar SIEMPRE la tarjeta; la imagen hace fallback automático
+                  $grid.append(buildCard(it, base.portada, base.alt));
                 });
               }).catch(() => { /* ignorar errores de índice */ });
         })();
@@ -1038,7 +1046,19 @@ window.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  function getStatus(item){
+  const AVAILABLE_TITLES = window.AVAILABLE_TITLES || new Set([
+  'el-corazon-de-la-avenida-santander',
+  'barrio-santa-clara',
+  'calle-cartagenita-cerca-de-billares-el-hipico',
+  'barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios',
+  'centro-cerete-ojo-segundo-piso',
+  'barrio-corinto-consta-de-2-habitaciones',
+  'barrio-el-edn-cerete',
+  'barrio-santa-teresa',
+  'barrio-venus-ceret'
+]);
+
+function getStatus(item){
     if(item.status) return item.status;
     return item.category === 'locales' ? 'arriendo' : 'venta';
   }
@@ -1052,6 +1072,12 @@ window.addEventListener('DOMContentLoaded', function(){
     if(t.includes('local')) if(item.category==='locales') s += 2;
     if(wantStatus && getStatus(item) === wantStatus) s += 3;
     return s;
+  }
+
+  // Disponibilidad: solo considerar las propiedades activas (no arrendadas)
+  function isAvailable(it){
+    const key = (it.title || it.folder || '').toLowerCase();
+    return AVAILABLE_TITLES.has(key);
   }
 
   function searchItems(query, options={}){
@@ -1083,6 +1109,10 @@ window.addEventListener('DOMContentLoaded', function(){
       let items = contentIndex.items;
       console.log('📊 Total items antes de filtrar:', items.length);
       
+      // Disponibilidad: excluir no activas
+      items = items.filter(it => isAvailable(it));
+      console.log('📊 Después de filtrar por disponibilidad:', items.length);
+      
       if(wantStatus){
         items = items.filter(it => getStatus(it) === wantStatus);
         console.log('📊 Después de filtrar por status:', items.length);
@@ -1101,6 +1131,7 @@ window.addEventListener('DOMContentLoaded', function(){
       .map(it=>({it, s: scoreItem(query, it, wantStatus)}))
       .filter(x=>{
         if(x.s <= 0) return false;
+        if(!isAvailable(x.it)) return false; // Disponibilidad
         if(wantStatus && getStatus(x.it) !== wantStatus) return false;
         if(wantCategory && x.it.category !== wantCategory) return false;
         return true;
@@ -1128,11 +1159,11 @@ window.addEventListener('DOMContentLoaded', function(){
       
       return `
         <div class=\"result-card\" style=\"padding:10px 12px;margin:8px 0;border-radius:10px;background:#ffffff;border:1px solid #e0e7ff;box-shadow:0 2px 4px rgba(0,0,0,0.05)\">
-          <div style=\"color:#1e40af;font-weight:600;font-size:15px\">${it.title}${pill}</div>
+          <div style=\"color:#1e40af;font-weight:600;font-size:15px\">${it.title}${pill}${AVAILABLE_TITLES.has((it.title||'').toLowerCase()) ? '' : `<span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;font-size:11px;background:#fee2e2;color:#991b1b;border:1px solid #fecaca">ARRENDADA</span>`}</div>
           ${priceText}
           ${infoPreview}
           <div style=\"display:flex;gap:8px;margin-top:10px;flex-wrap:wrap\">
-            <a href=\"${buildAbsUrl(it.path)}\" onclick=\"console.log('🔗 Enlace clickeado:', '${buildAbsUrl(it.path)}'); console.log('📁 Path original:', '${it.path}');\" target=\"_self\" class=\"result-link\" style=\"display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#3b82f6;color:#fff;text-decoration:none;font-size:13px;font-weight:500\">📄 Ver detalle completo</a>
+            ${AVAILABLE_TITLES.has((it.title||'').toLowerCase()) ? `<a href="${buildAbsUrl(it.path)}" onclick="console.log('🔗 Enlace clickeado:', '${buildAbsUrl(it.path)}'); console.log('📁 Path original:', '${it.path}');" target="_self" class="result-link" style="display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#3b82f6;color:#fff;text-decoration:none;font-size:13px;font-weight:500">📄 Ver detalle completo</a>` : `<span style="display:inline-block;padding:7px 12px;border-radius:6px;background:#fee2e2;color:#991b1b;border:1px solid #fecaca;font-size:12px;font-weight:600">ARRENDADA</span>`}
             <button class=\"wa-item\" data-path=\"${it.path}\" data-title=\"${it.title.replace(/\"/g,'&quot;')}\" data-category=\"${it.category}\" data-price=\"${it.price || ''}\" data-info=\"${(it.info || '').replace(/\"/g, '&quot;').substring(0, 100)}\" style=\"display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:6px;background:#25D366;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:500\">💬 Consultar por WhatsApp</button>
           </div>
         </div>
@@ -1465,13 +1496,34 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
     mm = t.match(/entre\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)\s*y\s*(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
     if(mm){ return { min: normalize(mm[1]), max: normalize(mm[2]) }; }
     
-    // único número (buscar exacto o rango cercano ±10%)
+    // único número - lógica inteligente de rangos
     mm = t.match(/(\d[\d\.\,]*\s*(?:k|m|mil|millon(?:es)?)?)/);
     if(mm){ 
-      const v = normalize(mm[1]); 
-      // Rango de ±15% para búsquedas de precio único
-      const margin = Math.round(v * 0.15);
-      return { min: v - margin, max: v + margin }; 
+      let v = normalize(mm[1]);
+      
+      // Si es un número pequeño (menos de 1000), convertir a miles
+      if(v < 1000) {
+        v = v * 1000;
+      }
+      
+      // Crear rangos inteligentes basados en el precio ingresado
+      let max;
+      if(v <= 250000) {
+        max = 500000;
+      } else if(v <= 500000) {
+        max = 700000;
+      } else if(v <= 700000) {
+        max = 1000000;
+      } else if(v <= 1000000) {
+        max = 1600000;
+      } else if(v <= 1600000) {
+        max = 2500000;
+      } else {
+        // Para precios muy altos, usar un margen del 50%
+        max = Math.round(v * 1.5);
+      }
+      
+      return { min: v, max: max }; 
     }
     
     return null;
@@ -1552,13 +1604,12 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
          conversationState.category = 'viviendas';
          conversationState.status = 'arriendo';
          await appendMessageWithDelay('¡Genial! Viviendas rurales. 🌾', 'bot', null, 600);
-         await appendMessageWithDelay(`¿Cuál es tu presupuesto? 💰<br><br>
-           <strong>Nuestras viviendas van desde $300.000 hasta $10.000.000</strong><br><br>
-           Ejemplos de búsqueda:<br>
-           • "300k-700k" (Económicas)<br>
-           • "700k-1M" (Rango medio)<br>
-           • "desde 1M" (Premium)<br>
-           • "$500.000 - $800.000"`, 'bot', {html:true}, 1000);
+         await appendMessageWithDelay(`¿Cuál es tu presupuesto mensual? 💰<br><br>
+           <strong>Ejemplos de búsquedas:</strong><br>
+           1) $250.000 - $500.000<br>
+           2) $500.000 - $1.000.000<br>
+           3) $1.000.000 - $1.600.000<br>
+           etc`, 'bot', {html:true}, 1000);
          return;
        }
        if(/asesor[ií]a|jur[ií]dica/.test(t)){
@@ -1585,20 +1636,18 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
          let priceExamples = '';
          if(conversationState.category === 'locales'){
            priceExamples = `¿Cuál es tu presupuesto mensual? 💰<br><br>
-             <strong>Nuestros locales van desde $400.000 hasta $160.000.000</strong><br><br>
-             Ejemplos de búsqueda:<br>
-             • "400k-800k" (Económicos)<br>
-             • "800k-1M" (Rango medio)<br>
-             • "desde 1M" (Premium)<br>
-             • "$500.000 - $700.000"`;
+             <strong>Ejemplos de búsquedas:</strong><br>
+             1) $400.000 - $800.000<br>
+             2) $800.000 - $1.000.000<br>
+             3) $1.000.000 - $1.600.000<br>
+             etc`;
          } else {
            priceExamples = `¿Cuál es tu presupuesto mensual? 💰<br><br>
-             <strong>Nuestras viviendas van desde $300.000 hasta $10.000.000</strong><br><br>
-             Ejemplos de búsqueda:<br>
-             • "300k-700k" (Económicas)<br>
-             • "700k-1M" (Rango medio)<br>
-             • "desde 1M" (Premium)<br>
-             • "$500.000 - $800.000"`;
+             <strong>Ejemplos de búsquedas:</strong><br>
+             1) $250.000 - $500.000<br>
+             2) $500.000 - $1.000.000<br>
+             3) $1.000.000 - $1.600.000<br>
+             etc`;
          }
          
          await appendMessageWithDelay('Perfecto, propiedades en arriendo. 📝', 'bot', null, 600);
@@ -1633,6 +1682,7 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
          // Buscar propiedades
          const allItems = contentIndex && contentIndex.items ? contentIndex.items : [];
          let filtered = allItems.filter(it => {
+           if(!isAvailable(it)) return false; // Excluir arrendadas/no activas
            if(conversationState.category && it.category !== conversationState.category) return false;
            if(conversationState.status && getStatus(it) !== conversationState.status) return false;
            return true;
@@ -1674,7 +1724,7 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
        
        // No entendió el precio
        await appendMessageWithDelay('No entendí el presupuesto. Por favor, escribe un rango de precio.', 'bot', null, 500);
-       await appendMessageWithDelay('Ejemplos:<br>• "500k-800k"<br>• "desde 600 mil"<br>• "$500.000 - $800.000"', 'bot', {html:true}, 800);
+       await appendMessageWithDelay('Ejemplos de búsquedas:<br>1) $250.000 - $500.000<br>2) $500.000 - $1.000.000<br>3) $1.000.000 - $1.600.000<br>etc', 'bot', {html:true}, 800);
        return;
      }
 
@@ -1730,6 +1780,10 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
         case 'asesoria': prompt = 'Asesoría inmobiliaria'; break;
         case 'whatsapp': prompt = 'Contacto por WhatsApp'; break;
         case 'contacto': prompt = 'Información de contacto'; break;
+        // Rangos de precio predefinidos
+        case 'price_300_500': prompt = '$300.000 - $500.000'; break;
+        case 'price_500_1000': prompt = '$500.000 - $1.000.000'; break;
+        case 'price_1000_1600': prompt = '$1.000.000 - $1.600.000'; break;
       }
       appendMessage(prompt, 'user');
       await handleUserInput(prompt);
