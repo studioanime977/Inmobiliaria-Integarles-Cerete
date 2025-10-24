@@ -1331,24 +1331,15 @@ Si te interesa, dime y te paso el contacto.`;
   function wirePropertyShareToAny(){
     const container = document.querySelector('.property-info-details');
     if(!container) return;
-    // Crear UI: input + botón
+    // Crear UI: solo botón (sin número), el usuario elige contacto en WhatsApp
     const wrap = document.createElement('div');
     wrap.style.display = 'flex';
     wrap.style.gap = '8px';
     wrap.style.marginTop = '8px';
-    const input = document.createElement('input');
-    input.type = 'tel';
-    input.placeholder = 'Número WhatsApp (ej. 3015717622)';
-    input.className = 'wa-number-input';
-    input.style.flex = '1';
-    input.style.padding = '8px';
-    input.style.border = '1px solid #ccc';
-    input.style.borderRadius = '6px';
     const shareBtn = document.createElement('a');
     shareBtn.href = '#';
     shareBtn.className = 'btn btn-outline wa-share-any';
     shareBtn.textContent = 'Compartir por WhatsApp';
-    wrap.append(input);
     wrap.append(shareBtn);
     container.append(wrap);
 
@@ -1358,26 +1349,16 @@ Si te interesa, dime y te paso el contacto.`;
     const price = extractPriceFromPropertyPage();
     const category = detectCategoryFromPath();
     const currentUrl = window.location.href;
-    const message = buildWhatsAppText(title, category, currentUrl, info, price);
+    const message = buildRecommendationText(title, category, currentUrl, info, price);
+    const encoded = encodeURIComponent(message);
+    const wa = `https://wa.me/?text=${encoded}`;
 
-    // Enviar al número ingresado
-    const sendTo = (rawNum)=>{
-      const digits = (rawNum||'').replace(/[^0-9]/g,'');
-      if(!digits){ alert('Ingresa un número de WhatsApp'); return; }
-      let final = digits;
-      // Normalización: si dan 10 dígitos colombianos, anteponer 57
-      if(digits.length === 10){ final = '57' + digits; }
-      else if(digits.length >= 11 && digits.startsWith('57')){ final = digits; }
-      else if(digits.length < 10){ alert('Número incompleto. Ej: 3015717622'); return; }
-
-      const encoded = encodeURIComponent(message);
-      const wa = `https://wa.me/${final}?text=${encoded}`;
-      try { navigator.clipboard.writeText(message); } catch(_) {}
+    // Abrir WhatsApp para elegir contacto, con mensaje prellenado
+    shareBtn.addEventListener('click', async (e)=>{
+      e.preventDefault();
+      try { await navigator.clipboard.writeText(message); } catch(_) {}
       window.open(wa, '_blank');
-    };
-
-    shareBtn.addEventListener('click', (e)=>{ e.preventDefault(); sendTo(input.value); });
-    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); sendTo(input.value); } });
+    });
   }
 
   // Inicializar en páginas de propiedad
