@@ -1,6 +1,11 @@
 /* ===================================
    INMOBILIARIA INTEGARLES CERETE
    JavaScript Principal
+
+   ⚠️ IMPORTANTE: Este sitio requiere un servidor HTTP para funcionar completamente.
+   Si ves errores en la consola, ejecuta:
+   python -m http.server 8000
+   Luego abre: http://localhost:8000
    =================================== */
 
 (function($) {
@@ -23,6 +28,24 @@
             once: true,
             mirror: false
         });
+
+        // Normaliza rutas de assets para evitar problemas con file:// y espacios
+        (function normalizeAssetPaths(){
+            try {
+                document.querySelectorAll('img[src]').forEach(function(img){
+                    var s = img.getAttribute('src');
+                    if (s && s.indexOf(' ') !== -1) {
+                        img.setAttribute('src', encodeURI(s));
+                    }
+                });
+                document.querySelectorAll('source[srcset]').forEach(function(src){
+                    var s = src.getAttribute('srcset');
+                    if (s && s.indexOf(' ') !== -1) {
+                        src.setAttribute('srcset', encodeURI(s));
+                    }
+                });
+            } catch(e) {}
+        })();
 
         // Mobile Menu Toggle
         $('#mobile-menu').on('click', function() {
@@ -671,8 +694,27 @@
               return $card;
             }
 
-            // Agregar tarjetas
-            viviendas.forEach(v => { $grid.append(createCard(v)); });
+            // Agregar tarjetas si existe imagen de portada
+            (async function(){
+              for (const v of viviendas) {
+                const base = 'assets/img/VIVIENDAS/' + v.folder;
+                const portada = base + '/PORTADA.jpg';
+                try {
+                  const res = await fetch(portada, { method: 'GET', cache: 'no-store' });
+                  if (res && res.ok) {
+                    $grid.append(createCard(v));
+                  } else {
+                    // Si no existe PORTADA, intenta 1.jpg
+                    const res2 = await fetch(base + '/1.jpg', { method: 'GET', cache: 'no-store' });
+                    if (res2 && res2.ok) {
+                      $grid.append(createCard(v));
+                    }
+                  }
+                } catch(e) {
+                  // Ignorar errores y no agregar tarjeta si no hay imágenes
+                }
+              }
+            })();
 
             // Resolver imágenes de portada con fallback y cargar INFO.txt
             const $viviendaCards = $('.featured-card[data-type="vivienda"]');
@@ -708,6 +750,67 @@
                 }
               }
             });
+        })();
+
+        // =====================
+        // Destacados desde content-index.json (evita items inexistentes)
+        // =====================
+        (function(){
+            const $grid = $('.featured-section .featured-grid');
+            if ($grid.length === 0) return;
+
+            function buildCard(it, imgUrl){
+                const type = it.category === 'locales' ? 'local' : 'vivienda';
+                const $card = $('<article/>', {
+                    class: 'featured-card',
+                    'data-type': type,
+                    'data-status': (it.status || '').toLowerCase(),
+                    'data-city': 'cerete'
+                });
+                // Imagen con el mismo markup y clases que el HTML estático
+                const $image = $('<div/>', { class: 'featured-image' }).append(
+                  $('<img/>', { alt: (type === 'local' ? 'Local - ' : 'Vivienda - ') + it.title }).attr('src', imgUrl)
+                );
+                // Contenido minimal: título + botón
+                const $info = $('<div/>', { class: 'featured-info' });
+                $info.append($('<h3/>').text(it.title));
+                const href = it.path || '';
+                if (href) {
+                  $info.append($('<a/>', { class: 'btn btn-outline', href }).text('Ver detalles'));
+                }
+                $card.append($image).append($info);
+                return $card;
+            }
+
+            function resolveBase(it){
+                const base = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '');
+                return {
+                    portada: base + '/PORTADA.jpg',
+                    alt: base + '/1.jpg'
+                };
+            }
+
+            fetch('assets/data/content-index.json', { method: 'GET', cache: 'no-store' })
+              .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
+              .then(idx => {
+                const items = (idx.items || []).filter(it => it && it.folder);
+                // Mantener orden; opcionalmente se podría limitar a N items
+                items.forEach(it => {
+                  const base = resolveBase(it);
+                  // Verificar imagen disponible (solo en HTTP). Si falla, no añadimos la tarjeta.
+                  fetch(base.portada, { method: 'GET', cache: 'no-store' }).then(res => {
+                    if (res && res.ok) {
+                      $grid.append(buildCard(it, base.portada));
+                      return;
+                    }
+                    return fetch(base.alt, { method: 'GET', cache: 'no-store' }).then(res2 => {
+                      if (res2 && res2.ok) {
+                        $grid.append(buildCard(it, base.alt));
+                      }
+                    });
+                  }).catch(() => { /* ignorar */ });
+                });
+              }).catch(() => { /* ignorar errores de índice */ });
         })();
 
     }); // End Document Ready
@@ -798,6 +901,9 @@
         './assets/data/content-index.json'
       ];
       console.log('⚠️ Detectado protocolo file:// - usando rutas relativas');
+      console.warn('🚨 IMPORTANTE: El chatbot no funcionará completamente desde file://');
+      console.warn('🔧 Ejecuta: python -m http.server 8000');
+      console.warn('🌐 Luego abre: http://localhost:8000/index.html');
     } else {
       // Servidor HTTP - usar rutas normales
       let baseUrl;
@@ -857,6 +963,14 @@
     console.error('🔧 SOLUCIÓN: Abre el sitio con un servidor HTTP');
     console.error('🔧 Ejecuta: python -m http.server 8000');
     console.error('🔧 Luego abre: http://localhost:8000/index.html');
+
+    // Mostrar mensaje de error amigable en el chat si está disponible
+    if(typeof appendMessage === 'function') {
+      appendMessage('⚠️ <strong>¡Atención!</strong> Para usar el chatbot completo, necesitas abrir el sitio desde un servidor HTTP.', 'bot', {html:true});
+      appendMessage('🚀 <strong>Solución:</strong> Ejecuta este comando en tu terminal:<br><code>python -m http.server 8000</code><br>Luego abre: <strong>http://localhost:8000</strong>', 'bot', {html:true});
+      appendMessage('💬 <strong>Mientras tanto</strong>, puedes contactarnos directamente por WhatsApp:', 'bot', {html:true});
+      appendMessage('<a href="https://wa.me/qr/6WQZ2EFOAR46O1" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none"><i class="fab fa-whatsapp"></i> WhatsApp</a>', 'bot', {html:true});
+    }
   }
 
   function open(){ panel.style.display = 'flex'; panel.setAttribute('aria-hidden','false'); }
@@ -1242,6 +1356,15 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
      console.log('💬 Input del usuario:', userText);
      console.log('📊 Estado conversación:', conversationState);
 
+     // Si no se pudo cargar el índice (probablemente file://), mostrar mensaje de ayuda
+     if(!contentIndex || !contentIndex.items || contentIndex.items.length === 0){
+       await appendMessageWithDelay('⚠️ El chatbot necesita un servidor HTTP para funcionar completamente.', 'bot', null, 400);
+       await appendMessageWithDelay('🚀 <strong>Solución rápida:</strong><br>1. Abre tu terminal<br>2. Ejecuta: <code>python -m http.server 8000</code><br>3. Abre: <strong>http://localhost:8000</strong>', 'bot', {html:true}, 800);
+       await appendMessageWithDelay('💬 <strong>Mientras tanto</strong>, aquí está nuestro contacto directo:', 'bot', {html:true}, 600);
+       await appendMessageWithDelay('<a href="https://wa.me/qr/6WQZ2EFOAR46O1" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none">📱 WhatsApp - ¡Escríbenos!</a>', 'bot', {html:true}, 600);
+       return;
+     }
+
      // Comandos especiales que reinician la conversación
      if(/^(inicio|empezar|comenzar|nuevo|reiniciar)$/i.test(t)){
        resetConversation();
@@ -1491,8 +1614,10 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
     // Verificar si el índice se cargó correctamente
     if(!contentIndex || !contentIndex.items || contentIndex.items.length === 0){
       console.error('❌ No se pudo cargar el índice en showWelcomeMessage');
-      appendMessage('⚠️ Estoy teniendo problemas para cargar las propiedades. Por favor, recarga la página o contáctanos directamente.', 'bot');
-      appendMessage(replyContact(), 'bot', {html:true});
+      await appendMessageWithDelay('⚠️ <strong>Problema de conexión</strong><br>El chatbot necesita un servidor HTTP para cargar las propiedades.', 'bot', {html:true}, 500);
+      await appendMessageWithDelay('🚀 <strong>Solución:</strong><br>Ejecuta en tu terminal:<br><code>python -m http.server 8000</code><br>Luego abre: <strong>http://localhost:8000</strong>', 'bot', {html:true}, 1000);
+      await appendMessageWithDelay('💬 <strong>Contacto directo:</strong> Escríbenos por WhatsApp para una atención inmediata.', 'bot', {html:true}, 800);
+      await appendMessageWithDelay('<a href="https://wa.me/qr/6WQZ2EFOAR46O1" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none">📱 WhatsApp</a>', 'bot', {html:true}, 600);
       return;
     }
     

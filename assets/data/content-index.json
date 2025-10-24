@@ -10,7 +10,7 @@
     {
       "category": "locales",
       "title": "Barrio-santa-teresa",
-      "path": "assets/img/LOCALES/barrio-santa-teresa/index.html",
+      "path": "pages/locales/barrio-santa-teresa.html",
       "keywords": [
         "barrio-santa-teresa",
         "santa",
@@ -31,7 +31,7 @@
     {
       "category": "locales",
       "title": "Barrio-santa-teresa-en-la-calle-principal",
-      "path": "assets/img/LOCALES/barrio-santa-teresa-en-la-calle-principal/index.html",
+      "path": "pages/locales/barrio-santa-teresa-en-la-calle-principal.html",
       "keywords": [
         "barrio-santa-teresa-en-la-calle-principal",
         "santa",
@@ -137,7 +137,7 @@
     {
       "category": "locales",
       "title": "Centro-de-cerete-estrategicamente",
-      "path": "assets/img/LOCALES/centro-de-cerete-estrategicamente/index.html",
+      "path": "pages/locales/centro-de-cerete-estrategicamente.html",
       "keywords": [
         "centro-de-cerete-estrategicamente"
       ],
@@ -161,7 +161,7 @@
     {
       "category": "locales",
       "title": "Parquete-central-de-cerete",
-      "path": "assets/img/LOCALES/parquete-central-de-cerete/index.html",
+      "path": "pages/locales/parquete-central-de-cerete.html",
       "keywords": [
         "parquete-central-de-cerete"
       ],
