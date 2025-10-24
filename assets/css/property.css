@@ -531,3 +531,860 @@
   .property-page .logo img { max-height: 40px; }
   .property-page .logo .brand-name { display: none; }
 }
+
+/* === Auto-extract & highlight key info === */
+.property-page .property-info-details p:first-of-type {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Contenedor para chips extraídos automáticamente */
+.property-page .property-info-details p:first-of-type::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
+}
+
+/* Destacar medidas específicas en el texto */
+.property-page .property-info-details {
+  --highlight-bg: #fef3c7;
+  --highlight-border: #f59e0b;
+  --highlight-text: #92400e;
+}
+
+/* Resaltar patrones específicos usando CSS avanzado */
+.property-page .property-info-details p strong + * {
+  line-height: 1.7;
+  word-spacing: 1px;
+}
+
+/* Crear chips visuales para información clave */
+.property-page .property-info-details .property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px dashed #cbd5e1;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.property-page .property-info-details .property-features::before {
+  content: "Características destacadas:";
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Chips mejorados para características */
+.property-page .property-info-details .property-features span {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  color: var(--text-strong);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.property-page .property-info-details .property-features span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-color: #0ea5e9;
+}
+
+.property-page .property-info-details .property-features span i {
+  color: var(--brand-color, #0ea5e9);
+  font-size: 0.9rem;
+}
+
+/* Crear sección de medidas destacada */
+.property-page .property-info-details::before {
+  content: "";
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Estilo especial para locales comerciales con medidas */
+.property-page .property-info-details p[data-has-measurements]::after,
+.property-page .property-info-details p:first-of-type:has-text("MEDIDAS APROX")::after,
+.property-page .property-info-details p:first-of-type:has-text("metros cuadrados")::after {
+  content: "📐 Medidas incluidas en descripción";
+  display: block;
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  color: var(--highlight-text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Mejorar legibilidad de números y medidas en el texto */
+.property-page .property-info-details p {
+  font-feature-settings: "tnum" 1; /* Números tabulares */
+}
+
+/* Destacar valores monetarios */
+.property-page .property-info-details p:nth-of-type(2) {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-page .property-info-details p:nth-of-type(2)::before {
+  content: "💰";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Espaciado mejorado para información organizada */
+.property-page .property-info-details > * + * {
+  margin-top: 14px;
+}
+
+/* Responsive para chips */
+@media (max-width: 600px) {
+  .property-page .property-info-details .property-features {
+    gap: 6px;
+  }
+  .property-page .property-info-details .property-features span {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+.property-page .property-info-details .property-features {
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 12px;
+  margin-top: 8px;
+}
+/* Botones con mejor ritmo visual */
+.property-page .property-info-details .btn { margin-top: 10px; }
+.property-page .property-info-details .btn + .btn { margin-left: 10px; }
+@media (max-width: 600px) {
+  .property-page .property-info-details .btn + .btn { margin-left: 0; }
+}
+
+/* Título negro sólido sin degradado */
+.property-page .section-title {
+  background: none !important;
+  color: #0f172a !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.06) !important;
+}
+
+/* Corregir ícono de dinero para que no tape el texto */
+.property-page .property-info-details p:nth-of-type(2) {
+  overflow: visible !important; /* evitar recortes del inline icon */
+}
+.property-page .property-info-details p:nth-of-type(2)::before {
+  content: none !important; /* eliminar pseudo absoluto que se superpone */
+}
+.property-page .property-info-details p:nth-of-type(2) strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.property-page .property-info-details p:nth-of-type(2) strong::before {
+  content: "💰";
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.9;
+  vertical-align: middle;
+}
+
+/* Centrar subtítulo y mantener estilo chip */
+.property-page .section-subtitle {
+  display: inline-block;
+  margin: 8px auto 0;
+  text-align: center;
+}
+
+/* Subtítulo llamativo y en mayúsculas */
+.property-page .section-subtitle {
+  text-transform: uppercase !important;
+  text-align: center;
+}
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f5faff 100%);
+  border: 1px solid #d6e6ff;
+  color: #0f172a;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(14,165,233,0.12);
+}
+
+.property-page .section-subtitle::before {
+  content: "ℹ️";
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.95rem;
+  vertical-align: -1px;
+  opacity: 0.85;
+}
+
+/* Ajuste adicional de contraste para el título principal */
+.property-page .section-title {
+  text-transform: uppercase !important;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #0b1220 0%, #38bdf8 50%, #0b1220 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.85), 0 3px 16px rgba(2, 6, 23, 0.35);
+  transition: text-shadow .2s ease, letter-spacing .2s ease;
+}
+
+.property-page .section-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 120px;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #22d3ee 0%, #0ea5e9 100%);
+  filter: drop-shadow(0 6px 16px rgba(14,165,233,0.5));
+}
+
+.property-page .section-title:hover {
+  letter-spacing: 1.4px;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.95), 0 4px 18px rgba(2, 6, 23, 0.4);
+}
+
+/* Subtítulo avanzado y centrado en mayúsculas */
+.property-page .section-subtitle {
+  text-transform: uppercase !important;
+  display: inline-block;
+  margin: 10px auto 0;
+  text-align: center;
+  padding: 9px 16px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: #0f172a;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f5faff 100%);
+  border: 1px solid #d6e6ff;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(14,165,233,0.15);
+}
+
+.property-page .section-subtitle::before {
+  content: "ℹ️";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1rem;
+  vertical-align: -1px;
+  opacity: 0.85;
+}
+.property-page .property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 12px 0 16px;
+}
+
+.property-page .property-features span {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: var(--text-strong);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.property-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.property-page .btn-primary {
+  background: var(--brand-color);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 20px rgba(14,165,233,0.35);
+}
+.property-page .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(14,165,233,0.45);
+}
+
+.property-page .btn-outline {
+  border: 2px solid var(--brand-color);
+  color: var(--brand-color);
+  background: transparent;
+}
+.property-page .btn-outline:hover {
+  background: var(--brand-color);
+  color: #fff;
+}
+
+.property-page .btn-icon { width: 18px; height: 18px; }
+
+/* Footer logo sizing stays from global; small polish here */
+.property-page .footer-logo img {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .property-page .property-content-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .property-page .property-details { padding: 24px 0; }
+  .property-page .property-gallery .thumbnail { width: 64px; height: 48px; }
+  .property-page .property-info-details { padding: 16px; }
+  .property-page .btn { width: 100%; justify-content: center; }
+}
+/* Enlace del logo (imagen + texto) */
+.property-page .logo .logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px; /* antes 10px */
+  text-decoration: none;
+  color: #0f172a;
+}
+
+.property-page .logo .logo-link:hover .brand-name {
+  color: var(--brand-color, #0ea5e9);
+}
+
+.property-page .logo img {
+  display: block;
+  max-height: 48px;
+  height: auto;
+}
+
+.property-page .logo .brand-name {
+  font-weight: 700;
+  font-size: 1.3rem; /* antes 1.2rem */
+}
+
+/* Ajustes de header en páginas de propiedad */
+@media (max-width: 768px) {
+  .property-page .logo img { max-height: 40px; }
+  .property-page .logo .brand-name { display: none; }
+}
+
+/* === Auto-extract & highlight key info === */
+.property-page .property-info-details p:first-of-type {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Contenedor para chips extraídos automáticamente */
+.property-page .property-info-details p:first-of-type::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
+}
+
+/* Destacar medidas específicas en el texto */
+.property-page .property-info-details {
+  --highlight-bg: #fef3c7;
+  --highlight-border: #f59e0b;
+  --highlight-text: #92400e;
+}
+
+/* Resaltar patrones específicos usando CSS avanzado */
+.property-page .property-info-details p strong + * {
+  line-height: 1.7;
+  word-spacing: 1px;
+}
+
+/* Crear chips visuales para información clave */
+.property-page .property-info-details .property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px dashed #cbd5e1;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.property-page .property-info-details .property-features::before {
+  content: "Características destacadas:";
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Chips mejorados para características */
+.property-page .property-info-details .property-features span {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  color: var(--text-strong);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.property-page .property-info-details .property-features span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-color: #0ea5e9;
+}
+
+.property-page .property-info-details .property-features span i {
+  color: var(--brand-color, #0ea5e9);
+  font-size: 0.9rem;
+}
+
+/* Crear sección de medidas destacada */
+.property-page .property-info-details::before {
+  content: "";
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Estilo especial para locales comerciales con medidas */
+.property-page .property-info-details p[data-has-measurements]::after,
+.property-page .property-info-details p:first-of-type:has-text("MEDIDAS APROX")::after,
+.property-page .property-info-details p:first-of-type:has-text("metros cuadrados")::after {
+  content: "📐 Medidas incluidas en descripción";
+  display: block;
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  color: var(--highlight-text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Mejorar legibilidad de números y medidas en el texto */
+.property-page .property-info-details p {
+  font-feature-settings: "tnum" 1; /* Números tabulares */
+}
+
+/* Destacar valores monetarios */
+.property-page .property-info-details p:nth-of-type(2) {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-page .property-info-details p:nth-of-type(2)::before {
+  content: "💰";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Espaciado mejorado para información organizada */
+.property-page .property-info-details > * + * {
+  margin-top: 14px;
+}
+
+/* Responsive para chips */
+@media (max-width: 600px) {
+  .property-page .property-info-details .property-features {
+    gap: 6px;
+  }
+  .property-page .property-info-details .property-features span {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+.property-page .property-info-details .property-features {
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 12px;
+  margin-top: 8px;
+}
+/* Botones con mejor ritmo visual */
+.property-page .property-info-details .btn { margin-top: 10px; }
+.property-page .property-info-details .btn + .btn { margin-left: 10px; }
+@media (max-width: 600px) {
+  .property-page .property-info-details .btn + .btn { margin-left: 0; }
+}
+
+/* Centrar subtítulo y mantener estilo chip */
+.property-page .section-subtitle {
+  display: inline-block;
+  margin: 8px auto 0;
+  text-align: center;
+}
+
+/* Subtítulo llamativo y en mayúsculas */
+.property-page .section-subtitle {
+  text-transform: uppercase !important;
+  text-align: center;
+}
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f5faff 100%);
+  border: 1px solid #d6e6ff;
+  color: #0f172a;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(14,165,233,0.12);
+}
+
+.property-page .section-subtitle::before {
+  content: "ℹ️";
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.95rem;
+  vertical-align: -1px;
+  opacity: 0.85;
+}
+
+/* Ajuste adicional de contraste para el título principal */
+.property-page .section-title {
+  text-transform: uppercase !important;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #0b1220 0%, #38bdf8 50%, #0b1220 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.85), 0 3px 16px rgba(2, 6, 23, 0.35);
+  transition: text-shadow .2s ease, letter-spacing .2s ease;
+}
+
+.property-page .section-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 120px;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #22d3ee 0%, #0ea5e9 100%);
+  filter: drop-shadow(0 6px 16px rgba(14,165,233,0.5));
+}
+
+.property-page .section-title:hover {
+  letter-spacing: 1.4px;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.95), 0 4px 18px rgba(2, 6, 23, 0.4);
+}
+
+/* Subtítulo avanzado y centrado en mayúsculas */
+.property-page .section-subtitle {
+  text-transform: uppercase !important;
+  display: inline-block;
+  margin: 10px auto 0;
+  text-align: center;
+  padding: 9px 16px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: #0f172a;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f5faff 100%);
+  border: 1px solid #d6e6ff;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(14,165,233,0.15);
+}
+
+.property-page .section-subtitle::before {
+  content: "ℹ️";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1rem;
+  vertical-align: -1px;
+  opacity: 0.85;
+}
+.property-page .property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 12px 0 16px;
+}
+
+.property-page .property-features span {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: var(--text-strong);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.property-page .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.property-page .btn-primary {
+  background: var(--brand-color);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 20px rgba(14,165,233,0.35);
+}
+.property-page .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(14,165,233,0.45);
+}
+
+.property-page .btn-outline {
+  border: 2px solid var(--brand-color);
+  color: var(--brand-color);
+  background: transparent;
+}
+.property-page .btn-outline:hover {
+  background: var(--brand-color);
+  color: #fff;
+}
+
+.property-page .btn-icon { width: 18px; height: 18px; }
+
+/* Footer logo sizing stays from global; small polish here */
+.property-page .footer-logo img {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .property-page .property-content-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .property-page .property-details { padding: 24px 0; }
+  .property-page .property-gallery .thumbnail { width: 64px; height: 48px; }
+  .property-page .property-info-details { padding: 16px; }
+  .property-page .btn { width: 100%; justify-content: center; }
+}
+/* Enlace del logo (imagen + texto) */
+.property-page .logo .logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px; /* antes 10px */
+  text-decoration: none;
+  color: #0f172a;
+}
+
+.property-page .logo .logo-link:hover .brand-name {
+  color: var(--brand-color, #0ea5e9);
+}
+
+.property-page .logo img {
+  display: block;
+  max-height: 48px;
+  height: auto;
+}
+
+.property-page .logo .brand-name {
+  font-weight: 700;
+  font-size: 1.3rem; /* antes 1.2rem */
+}
+
+/* Ajustes de header en páginas de propiedad */
+@media (max-width: 768px) {
+  .property-page .logo img { max-height: 40px; }
+  .property-page .logo .brand-name { display: none; }
+}
+
+/* === Auto-extract & highlight key info === */
+.property-page .property-info-details p:first-of-type {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Contenedor para chips extraídos automáticamente */
+.property-page .property-info-details p:first-of-type::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
+}
+
+/* Destacar medidas específicas en el texto */
+.property-page .property-info-details {
+  --highlight-bg: #fef3c7;
+  --highlight-border: #f59e0b;
+  --highlight-text: #92400e;
+}
+
+/* Resaltar patrones específicos usando CSS avanzado */
+.property-page .property-info-details p strong + * {
+  line-height: 1.7;
+  word-spacing: 1px;
+}
+
+/* Crear chips visuales para información clave */
+.property-page .property-info-details .property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px dashed #cbd5e1;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.property-page .property-info-details .property-features::before {
+  content: "Características destacadas:";
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Chips mejorados para características */
+.property-page .property-info-details .property-features span {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  color: var(--text-strong);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.property-page .property-info-details .property-features span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-color: #0ea5e9;
+}
+
+.property-page .property-info-details .property-features span i {
+  color: var(--brand-color, #0ea5e9);
+  font-size: 0.9rem;
+}
+
+/* Crear sección de medidas destacada */
+.property-page .property-info-details::before {
+  content: "";
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Estilo especial para locales comerciales con medidas */
+.property-page .property-info-details p[data-has-measurements]::after,
+.property-page .property-info-details p:first-of-type:has-text("MEDIDAS APROX")::after,
+.property-page .property-info-details p:first-of-type:has-text("metros cuadrados")::after {
+  content: "📐 Medidas incluidas en descripción";
+  display: block;
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  color: var(--highlight-text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Mejorar legibilidad de números y medidas en el texto */
+.property-page .property-info-details p {
+  font-feature-settings: "tnum" 1; /* Números tabulares */
+}
+
+/* Destacar valores monetarios */
+.property-page .property-info-details p:nth-of-type(2) {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-page .property-info-details p:nth-of-type(2)::before {
+  content: "💰";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Espaciado mejorado para información organizada */
+.property-page .property-info-details > * + * {
+  margin-top: 14px;
+}
+
+/* Responsive para chips */
+@media (max-width: 600px) {
+  .property-page .property-info-details .property-features {
+    gap: 6px;
+  }
+  .property-page .property-info-details .property-features span {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+.property-page .property-info-details .property-features {
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 12px;
+  margin-top: 8px;
+}
+/* Botones con mejor ritmo visual */
+.property-page .property-info-details .btn { margin-top: 10px; }
+.property-page .property-info-details .btn + .btn { margin-left: 10px; }
+@media (max-width: 600px) {
+  .property-page .property-info-details .btn + .btn { margin-left: 0; }
+}
