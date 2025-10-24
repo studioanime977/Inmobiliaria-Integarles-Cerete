@@ -797,7 +797,7 @@
                 if (!isAvailable) {
                   $image.append($('<span/>', { class: 'pill pill-arriendo', style: 'position:absolute;top:8px;left:8px;z-index:2' }).text('ARRENDADA'));
                 }
-                const href = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
+                const href = it.path;
                 if (href && isAvailable) {
                   $info.append($('<a/>', { class: 'btn btn-outline', href }).text('Ver detalles'));
                 } else {
@@ -809,11 +809,13 @@
             }
 
             function resolveBase(it){
+                const path = it.path || '';
+                if (/\/assets\/img\/.+\/index\.html$/.test(path)) {
+                  const base = path.replace(/\/index\.html$/, '');
+                  return { portada: base + '/PORTADA.jpg', alt: base + '/1.jpg' };
+                }
                 const base = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '');
-                return {
-                    portada: base + '/PORTADA.jpg',
-                    alt: base + '/1.jpg'
-                };
+                return { portada: base + '/PORTADA.jpg', alt: base + '/1.jpg' };
             }
 
             fetch('assets/data/content-index.json', { method: 'GET', cache: 'no-store' })

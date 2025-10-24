@@ -10,7 +10,7 @@
     {
       "category": "locales",
       "title": "Barrio-santa-teresa",
-      "path": "pages/locales/barrio-santa-teresa.html",
+      "path": "assets/img/LOCALES/barrio-santa-teresa/index.html",
       "keywords": [
         "barrio-santa-teresa",
         "santa",
@@ -31,7 +31,7 @@
     {
       "category": "locales",
       "title": "Barrio-santa-teresa-en-la-calle-principal",
-      "path": "pages/locales/barrio-santa-teresa-en-la-calle-principal.html",
+      "path": "assets/img/LOCALES/barrio-santa-teresa-en-la-calle-principal/index.html",
       "keywords": [
         "barrio-santa-teresa-en-la-calle-principal",
         "santa",
@@ -137,7 +137,7 @@
     {
       "category": "locales",
       "title": "Centro-de-cerete-estrategicamente",
-      "path": "pages/locales/centro-de-cerete-estrategicamente.html",
+      "path": "assets/img/LOCALES/centro-de-cerete-estrategicamente/index.html",
       "keywords": [
         "centro-de-cerete-estrategicamente"
       ],
@@ -161,7 +161,7 @@
     {
       "category": "locales",
       "title": "Parquete-central-de-cerete",
-      "path": "pages/locales/parquete-central-de-cerete.html",
+      "path": "assets/img/LOCALES/parquete-central-de-cerete/index.html",
       "keywords": [
         "parquete-central-de-cerete"
       ],
@@ -463,7 +463,7 @@
       "folder": "barrio-santa-clara"
     },
     {
-      "category": "viviendas",
+      "category": "locales",
       "title": "Barrio-santa-clara-cerca-del-parque",
       "path": "assets/img/VIVIENDAS/barrio-santa-clara-cerca-del-parque/index.html",
       "keywords": [
@@ -623,7 +623,7 @@
       "folder": "calle-cartagenita-cerca-del-marceliano-polo"
     },
     {
-      "category": "viviendas",
+      "category": "locales",
       "title": "Calle-cartagenita-en-todo-los-semforos",
       "path": "assets/img/VIVIENDAS/calle-cartagenita-en-todo-los-semforos/index.html",
       "keywords": [

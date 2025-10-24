@@ -180,5 +180,52 @@
         AOS.init();
     </script>
     <script src="../../../js/property-info-extractor.js"></script>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot" class="chatbot" aria-live="polite" aria-label="Asistente virtual">
+      <button id="chatToggle" class="chat-toggle" aria-label="Abrir chat">
+        <span class="bot-avatar" aria-hidden="true">🤖</span>
+        <span class="toggle-text"><strong> INTEGRALBOT</strong><br>
+          <small>Tu asistente Virtual 24/7</small></span>
+      </button>
+      <div class="chat-panel" id="chatPanel" aria-hidden="true">
+        <div class="chat-header">
+          <div class="chat-title">🤖 INTEGRALBOT</div>
+          <div class="chat-status"><span class="dot"></span> En línea</div>
+          <button class="chat-close" id="chatClose" aria-label="Cerrar">×</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="chat-hero">
+            <div class="hero-text">
+              <h3>¡Hola! 👋 Bienvenido</h3>
+              <p>Te ayudo a encontrar propiedades y resolver dudas.</p>
+            </div>
+          </div>
+
+          <div class="chat-card">
+            <strong>¿Qué te interesa?</strong>
+            <ul>
+              <li>• Comprar vivienda</li>
+              <li>• Alquilar apartamento</li>
+              <li>• Proyectos nuevos</li>
+            </ul>
+          </div>
+
+          <div class="chat-quick" role="group" aria-label="Acciones rápidas">
+            <button class="quick-btn" data-action="viviendas">Viviendas</button>
+            <button class="quick-btn" data-action="locales">Locales</button>
+            <button class="quick-btn" data-action="contacto">Contáctanos</button>
+          </div>
+        </div>
+
+        <div class="chat-input">
+          <div class="input-pill">
+            <input type="text" id="chatInput" placeholder="Pregúntanos algo..." aria-label="Campo de pregunta" />
+            <button class="chat-send" id="chatSend" aria-label="Enviar">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
