@@ -773,7 +773,11 @@
                 );
                 // Contenido minimal: título + botón
                 const $info = $('<div/>', { class: 'featured-info' });
-                $info.append($('<h3/>').text(it.title));
+                // Convertir título a mayúsculas y reemplazar guiones con espacios
+                const formattedTitle = it.title
+                    .replace(/-/g, ' ')  // Reemplazar guiones con espacios
+                    .toUpperCase();      // Convertir a mayúsculas
+                $info.append($('<h3/>').text(formattedTitle));
                 const href = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
                 if (href) {
                   $info.append($('<a/>', { class: 'btn btn-outline', href }).text('Ver detalles'));
