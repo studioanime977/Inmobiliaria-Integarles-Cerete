@@ -1215,6 +1215,9 @@ ${url}
     }
     const infoText = info ? `\n📝 ${info.substring(0, 180)}${info.length > 180 ? '...' : ''}` : '';
 
+    // Bloque de contacto a la inmobiliaria (enlaces clicables)
+    const contactBlock = `\n\n📞 Contacto Inmobiliaria:\n- Teléfonos: 3015717622 / 3007256161\n- WhatsApp (+57 301 571 7622): https://wa.me/qr/6WQZ2EFOAR46O1`;
+
     const message = `¡Hola! 👋
 
 Te comparto esta ${kind} que encontré y creo que te puede interesar:
@@ -1222,9 +1225,7 @@ Te comparto esta ${kind} que encontré y creo que te puede interesar:
 🏠 *${title}*${priceText}${infoText}
 
 🔗 Ver detalles:
-${url}
-
-Si te interesa, dime y te paso el contacto.`;
+${url}${contactBlock}`;
 
     return message;
   }
