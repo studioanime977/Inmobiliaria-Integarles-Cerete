@@ -239,40 +239,40 @@
     },
     {
       "category": "viviendas",
-      "title": "Barrio-el-edn-cerete",
-      "path": "assets/img/VIVIENDAS/barrio-el-edn-cerete/index.html",
+      "title": "Barrio-eleden-cerete",
+      "path": "assets/img/VIVIENDAS/barrio-el-eden-cerete/index.html",
       "keywords": [
-        "barrio-el-edn-cerete",
-        "edén",
+        "barrio-eleden-cerete",
+        "eleden",
         "cerete",
         "cordoba",
         "consta"
       ],
       "status": "arriendo",
       "price": null,
-      "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el edén cerete cordoba consta de 3 habitaciones  sala comedor cocina 1 solo baño 1 solo closet patio mediano buenos acabados y buena ubicación VALOR: 650.000 TEL 3015717622-3007256161",
-      "folder": "barrio-el-edn-cerete"
+      "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio eleden cerete cordoba consta de 3 habitaciones  sala comedor cocina 1 solo baño 1 solo closet patio mediano buenos acabados y buena ubicación VALOR: 650.000 TEL 3015717622-3007256161",
+      "folder": "barrio-el-eden-cerete"
     },
     {
       "category": "viviendas",
-      "title": "Barrio-el-edn-consta-de-3-habitacione",
-      "path": "assets/img/VIVIENDAS/barrio-el-edn-consta-de-3-habitacione/index.html",
+      "title": "Barrio-el-eden-consta-de-3-habitacione",
+      "path": "assets/img/VIVIENDAS/barrio-el-eden-consta-de-3-habitacione/index.html",
       "keywords": [
-        "barrio-el-edn-consta-de-3-habitacione",
+        "barrio-el-eden-consta-de-3-habitacione",
         "edén",
         "consta"
       ],
       "status": "arriendo",
       "price": 750000,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada  en el barrio el edén consta de 3 habitaciones  2 con closeth 2 baños abanicos de techo en sala y habitaciones garaje eléctrico  cocina zona de labores buenos acabados VALOR $750.000 TEL 3015717622-3007256161",
-      "folder": "barrio-el-edn-consta-de-3-habitacione"
+      "folder": "barrio-el-eden-consta-de-3-habitacione"
     },
     {
       "category": "viviendas",
-      "title": "Barrio-el-edn-cuenta-con-2-habitaciones",
-      "path": "assets/img/VIVIENDAS/barrio-el-edn-cuenta-con-2-habitaciones/index.html",
+      "title": "Barrio-el-eden-cuenta-con-2-habitaciones",
+      "path": "assets/img/VIVIENDAS/barrio-el-eden-cuenta-con-2-habitaciones/index.html",
       "keywords": [
-        "barrio-el-edn-cuenta-con-2-habitaciones",
+        "barrio-el-eden-cuenta-con-2-habitaciones",
         "edén",
         "cuenta",
         "con"
@@ -280,7 +280,7 @@
       "status": "arriendo",
       "price": null,
       "info": "SE ARRIENDA VIVIENDA URBANA: Esta ubicada en el barrio el edén cuenta con 2 habitaciones  un solo baño 1solo closeth sala comedor cocina buenos acabados patio pequeño CALOR$ 500.000 TEL 3015717622-3007256161",
-      "folder": "barrio-el-edn-cuenta-con-2-habitaciones"
+      "folder": "barrio-el-eden-cuenta-con-2-habitaciones"
     },
     {
       "category": "viviendas",

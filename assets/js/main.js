@@ -19,7 +19,7 @@
       'barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios',
       'centro-cerete-ojo-segundo-piso',
       'barrio-corinto-consta-de-2-habitaciones',
-      'barrio-el-edn-cerete',
+      'barrio-el-eden-cerete',
       'barrio-santa-teresa',
       'barrio-venus-ceret'
     ]);
@@ -781,9 +781,17 @@
                     'data-city': 'cerete'
                 });
                 // Imagen con el mismo markup y clases que el HTML estático, con fallback
-                const $img = $('<img/>', { alt: (type === 'local' ? 'Local - ' : 'Vivienda - ') + it.title })
-                  .attr('src', imgUrl)
-                  .attr('onerror', `this.onerror=null; this.src='${fallbackUrl}';`);
+                const $img = $('<img/>', { alt: (type === 'local' ? 'Local - ' : 'Vivienda - ') + it.title });
+                // Fallback robusto: probar variaciones de nombre de archivo
+                const base = (imgUrl || '').replace(/\\/g,'/').replace(/\/PORTADA\.jpg$/i,'').replace(/\/1\.jpg$/i,'');
+                const candidates = ['PORTADA.jpg','portada.jpg','Portada.jpg','PORTADA.JPG','portada.JPG','1.jpg','1.JPG'];
+                let idx = 0;
+                const tryNext = () => {
+                  if (idx >= candidates.length) return;
+                  $img.attr('src', base + '/' + candidates[idx++]);
+                };
+                $img.on('error', tryNext);
+                tryNext();
                 const $image = $('<div/>', { class: 'featured-image' }).append($img);
                 // Contenido minimal: título + botón
                 const $info = $('<div/>', { class: 'featured-info' });
@@ -1055,7 +1063,7 @@ window.addEventListener('DOMContentLoaded', function(){
   'barrio-el-prado-al-frente-de-la-salida-de-colegio-de-los-nios',
   'centro-cerete-ojo-segundo-piso',
   'barrio-corinto-consta-de-2-habitaciones',
-  'barrio-el-edn-cerete',
+  'barrio-el-eden-cerete',
   'barrio-santa-teresa',
   'barrio-venus-ceret'
 ]);
