@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
 /* Property Detail Page - Clean and Organized Styles */
 
 /* Layout */
@@ -170,6 +171,7 @@
   --text-strong: #0f172a;
   --text-muted: #334155;
   --bg-soft: #f8fafc;
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
 
 .property-page .header .nav-wrapper {
@@ -362,6 +364,8 @@
   font-weight: 700;
   font-size: 1.3rem; /* antes 1.2rem */
   text-transform: uppercase;
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  letter-spacing: 0.5px;
 }
 .property-page .gallery-main { position: relative; }
 .property-page .gallery-main .gallery-nav {
@@ -524,6 +528,8 @@
 .property-page .logo .brand-name {
   font-weight: 700;
   font-size: 1.3rem; /* antes 1.2rem */
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Ajustes de header en páginas de propiedad */
@@ -891,6 +897,8 @@
 .property-page .logo .brand-name {
   font-weight: 700;
   font-size: 1.3rem; /* antes 1.2rem */
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Ajustes de header en páginas de propiedad */

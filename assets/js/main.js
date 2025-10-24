@@ -837,7 +837,7 @@
 })(jQuery);
 
 // Chatbot logic
-(function(){
+window.addEventListener('DOMContentLoaded', function(){
   function ensureChatbotMarkup(){
     let root = document.getElementById('chatbot');
     if(root) return root;
@@ -883,8 +883,18 @@
 
   if(!panel || !toggle || !closeBtn || !body || !input || !send){
     console.warn('Chatbot: faltan elementos para inicializar.');
+    console.warn('Panel:', panel);
+    console.warn('Toggle:', toggle);
+    console.warn('CloseBtn:', closeBtn);
+    console.warn('Body:', body);
+    console.warn('Input:', input);
+    console.warn('Send:', send);
     return;
   }
+  
+  console.log('✅ Chatbot inicializado correctamente');
+  console.log('🎯 Panel:', panel);
+  console.log('🎯 Toggle:', toggle);
 
   let contentIndex = null;
   let indexLoaded = false;
@@ -981,8 +991,16 @@
     }
   }
 
-  function open(){ panel.style.display = 'flex'; panel.setAttribute('aria-hidden','false'); }
-  function close(){ panel.style.display = 'none'; panel.setAttribute('aria-hidden','true'); }
+  function open(){ 
+    console.log('🔓 Abriendo panel');
+    panel.style.display = 'flex'; 
+    panel.setAttribute('aria-hidden','false'); 
+  }
+  function close(){ 
+    console.log('🔒 Cerrando panel');
+    panel.style.display = 'none'; 
+    panel.setAttribute('aria-hidden','true'); 
+  }
   // Exponer apertura para usarla desde index.html
   window.openChatbot = open;
   // Estado de la conversación
@@ -1671,7 +1689,9 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
    }
 
   toggle.addEventListener('click', ()=>{
-    const visible = panel.style.display === 'flex';
+    console.log('🖱️ Click en toggle detectado');
+    const visible = panel.style.display === 'flex' || getComputedStyle(panel).display === 'flex';
+    console.log('👁️ Panel visible:', visible);
     visible ? close() : open();
   });
   closeBtn.addEventListener('click', close);
@@ -1759,4 +1779,4 @@ Ofrecemos servicios de compra, venta, arriendo y asesoría inmobiliaria y juríd
     console.log('🚀 Inicializando chatbot...');
     showWelcomeMessage();
   }
-})();
+});
