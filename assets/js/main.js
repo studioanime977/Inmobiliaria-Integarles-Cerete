@@ -774,7 +774,7 @@
                 // Contenido minimal: título + botón
                 const $info = $('<div/>', { class: 'featured-info' });
                 $info.append($('<h3/>').text(it.title));
-                const href = it.path || '';
+                const href = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
                 if (href) {
                   $info.append($('<a/>', { class: 'btn btn-outline', href }).text('Ver detalles'));
                 }
@@ -797,16 +797,20 @@
                 // Mantener orden; opcionalmente se podría limitar a N items
                 items.forEach(it => {
                   const base = resolveBase(it);
-                  // Verificar imagen disponible (solo en HTTP). Si falla, no añadimos la tarjeta.
-                  fetch(base.portada, { method: 'GET', cache: 'no-store' }).then(res => {
-                    if (res && res.ok) {
-                      $grid.append(buildCard(it, base.portada));
-                      return;
-                    }
-                    return fetch(base.alt, { method: 'GET', cache: 'no-store' }).then(res2 => {
-                      if (res2 && res2.ok) {
-                        $grid.append(buildCard(it, base.alt));
+                  const indexPath = 'assets/img/' + (it.category === 'locales' ? 'LOCALES/' : 'VIVIENDAS/') + (it.folder || '') + '/index.html';
+                  // Verificar que exista index.html y al menos una imagen antes de añadir la tarjeta
+                  fetch(indexPath, { method: 'GET', cache: 'no-store' }).then(idxRes => {
+                    if (!idxRes || !idxRes.ok) { return; }
+                    return fetch(base.portada, { method: 'GET', cache: 'no-store' }).then(res => {
+                      if (res && res.ok) {
+                        $grid.append(buildCard(it, base.portada));
+                        return;
                       }
+                      return fetch(base.alt, { method: 'GET', cache: 'no-store' }).then(res2 => {
+                        if (res2 && res2.ok) {
+                          $grid.append(buildCard(it, base.alt));
+                        }
+                      });
                     });
                   }).catch(() => { /* ignorar */ });
                 });
